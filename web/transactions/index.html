@@ -1,0 +1,120 @@
+{#
+ # Viewing costs
+ #
+ # variables:
+ # 1. networks[]: ALL available network objects
+ #    1.1 networks[].name - name of network e.g. 'mpesa'
+ # 2. network: active network object (an item from networks[])
+ #    2.1 transactions[]: the different types of transactions
+ #      2.1.1 transactions[].type: e.g. 'transfers', 'withdrawals'
+ #      2.1.2 transactions[].transactors e.g. 'unregistered', 'atm'
+ # 3. defaults.amount: amount of transaction e.g. '5000'
+ #}
+{% extends '_layouts/default.html' %}
+{% set cssURL = '/css/transaction.css' %}
+
+
+{% block content %}
+<!-- Networks -->
+<div class="networks-list-wrapper">
+  <ul class="networks-list">
+    {% for network in networks %}
+    <li><a href="{{ site.baseurl }}/n/{{ network.name }}">{{ network.name }}</a></li>
+    {% endfor %}
+  </ul>
+</div>
+
+<header class="main-content-header center">
+  <h1>Calculate Cost of <span class="network-name">{{ network.name | capitalize }}</span> Transaction</h1>
+</header>
+
+
+<!--  Result -->
+{% if result %}
+<div class="result center notification-wrapper">
+  {% if result.error %}{% set alert_class = 'danger' %}{% endif %}
+  {% if result.success %}{% set alert_class = 'success' %}{% endif %}
+
+  <div class="animated bounceIn">
+    <div id="notification" class="alert alert-{{ alert_class }} alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        {% if result.error %}
+          {{ result.message  }}
+        {% elif result.success %}
+        <p>It will cost you <span class="results-cost"><strong>KES. {{ result.cost }} /=</strong></span></p>
+        {% endif %}
+    </div>
+  </div>
+</div>
+{% endif %}
+
+
+<div id="input-panel">
+  <div role="tabpanel" class="cost-panel">
+  <!-- tabpanel.start -->
+
+  {% macro active(transaction, first) %}
+    {% if (body.transactionType == transaction.type) or (first and not body) %}active{% endif %}
+  {% endmacro %}
+
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    {% for transaction in network.transactions %}
+    <li role="presentation" class="{{ active(transaction, loop.first) }}"><a href="#{{ transaction.type }}" aria-controls="home" role="tab" data-toggle="tab">{{ transaction.type | capitalize }}</a></li>
+    {% endfor %}
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+
+    {% for transaction in network.transactions %}
+    <!-- transaction.start -->
+
+    <div role="tabpanel" class="tab-pane {{ active(transaction, loop.first) }}" id="{{ transaction.type }}">
+        <form action="{{ __path }}" method="post">
+
+        <!-- Transaction type -->
+        <input type="hidden" name="transactionType" value="{{ transaction.type }}" />
+
+        <!-- Transaction amount -->
+        {% if transaction.amount == false %}
+        <input type="hidden" name="amount" value="5000" />
+        {% else %}
+        <div class="form-group row">
+          <label for="amount" class="col-xs-2">Amount</label>
+          <div class="col-xs-10">
+              <input type="number" name="amount" value="{{ body.amount or 5000 }}" class="form-control" >
+          </div>
+        </div>
+        {% endif %}
+
+        <!-- Transaction transactor -->
+        <div class="form-group row">
+          <label for="transactor" class="col-xs-2">Transactor</label>
+          <div class="col-xs-10">
+            <select class="form-control" name="transactor">
+                {% for class in transaction.classes  %}
+                <option {% if class.transactor == body.transactor %}selected="true"{% endif %} value="{{ class.transactor }}">{{ class.transactor }}</option>
+                {% endfor %}
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-xs-12">
+            <input type="submit" value="Calculate" class="btn btn-primary pull-right"/>
+          </div>
+        </div>
+
+        </form>
+    </div>
+
+    <!-- transaction.end -->
+    {% endfor %}
+
+  </div>
+
+  <!-- tabpanel.end -->
+  </div>
+</div>
+{% endblock %}

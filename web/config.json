@@ -1,0 +1,7 @@
+{
+  "statics": [
+    "css",
+    "static",
+    "vendor"
+  ]
+}

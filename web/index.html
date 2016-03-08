@@ -1,0 +1,31 @@
+{#
+ # Our Homepage
+ #
+ # variables:
+ # 1. networks: the transactions
+ #}
+{% extends '_layouts/page.html' %}
+
+
+{# variables #}
+{% set main_title = site.title %}
+{% set cssURL = '/css/transaction.css' %}
+
+
+{# blocks #}
+{% block main_content %}
+
+<p>{{ site.description }}</p>
+
+<div class="center">
+    <h3>Supported Networks</h3>
+    <div class="networks-list">
+        <ul>
+            {% for network in networks %}
+            <li><a href="{{ site.baseurl }}/n/{{ network.name }}">{{ network.name }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+{% endblock %}

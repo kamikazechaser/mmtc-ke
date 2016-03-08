@@ -1,0 +1,24 @@
+{#
+ # Page Layout: used for information pages
+ #
+ # variables:
+ # 1. main_title: the main title
+ #
+ # blocks:
+ # 1. main_content: the main content
+ #}
+{% extends '_layouts/default.html' %}
+
+{% block content %}
+<main class="main-content">
+
+  <header class="main-content-header">
+    <h1 class="post-title">{{ main_title }}</h1>
+  </header>
+
+  <article class="main-content-body">
+      {% block main_content %}{% endblock %}
+  </article>
+
+</main>
+{% endblock %}

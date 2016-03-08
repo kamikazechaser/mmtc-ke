@@ -1,0 +1,24 @@
+{
+  "name": "mmtc-ke",
+  "description": "Mobile Money Transfer Costs",
+  "main": "app.js",
+  "authors": [
+    "GochoMugo <mugo@forfuture.co.ke>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "ma3route",
+    "web",
+    "interface"
+  ],
+  "moduleType": [],
+  "homepage": "https://forfuture.co.ke",
+  "private": true,
+  "ignore": [],
+  "dependencies": {
+    "font-awesome": "^4.5.0",
+    "jquery": "^2.2.1",
+    "bootstrap": "^3.3.6",
+    "animate.css": "^3.5.1"
+  }
+}
