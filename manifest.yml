@@ -3,6 +3,7 @@ applications:
   memory: 256M
   instances: 1
   domain: eu-gb.mybluemix.net
-  name: mtc-ke
-  host: mtc-ke
+  name: mmtc-ke
+  host: mmtc-ke
   disk_quota: 1024M
+  command: ./script/start.sh
