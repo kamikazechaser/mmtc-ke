@@ -14,6 +14,7 @@ var nunjucks = require('nunjucks');
 var engine = require('./engine');
 var routes = require('./routes');
 var webConfig = require('./web/config');
+var pkg = require('./package.json');
 
 
 // module variables
@@ -34,6 +35,7 @@ nunjucksEnv = nunjucks.configure('web', {
 
 
 debug("adding global variables for nunjucks templates");
+nunjucksEnv.addGlobal("pkg", pkg);
 nunjucksEnv.addGlobal("site", config.get("site"));
 nunjucksEnv.addGlobal("env", process.env);
 
