@@ -16,7 +16,7 @@ config.server.ip = '0.0.0.0';
 // site configuration
 config.site = {};
 config.site.title = `Mobile Money Transaction Cost in Kenya`;
-config.site.title_short = `mmtc-ke`;
+config.site.title_short = `mmtc | ke`;
 config.site.email = `we@forfuture.co.ke`;
 config.site.description = `An easy way to calculate cost of mobile money transcations in Kenya`
 config.site.url = `mmtc.forfuture.co.ke`;
