@@ -12,8 +12,8 @@ in this project. We are enforcing a code of conduct, described in
 [CODE\_OF\_CONDUCT.md][coc].
 
 
-[contrib]:https://github.com/forfuturellc/mmtc-ke/CONTRIBUTING.md
-[coc]:https://github.com/forfuturellc/mmtc-ke/CODE_OF_CONDUCT.md
+[contrib]:https://github.com/forfuturellc/mmtc-ke/blob/master/CONTRIBUTING.md
+[coc]:https://github.com/forfuturellc/mmtc-ke/blob/master/CODE_OF_CONDUCT.md
 
 
 ## license:
