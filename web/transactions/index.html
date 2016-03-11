@@ -1,14 +1,5 @@
 {#
  # Viewing costs
- #
- # variables:
- # 1. networks[]: ALL available network objects
- #    1.1 networks[].name - name of network e.g. 'mpesa'
- # 2. network: active network object (an item from networks[])
- #    2.1 transactions[]: the different types of transactions
- #      2.1.1 transactions[].type: e.g. 'transfers', 'withdrawals'
- #      2.1.2 transactions[].transactors e.g. 'unregistered', 'atm'
- # 3. defaults.amount: amount of transaction e.g. '5000'
  #}
 {% extends '_layouts/default.html' %}
 {% set cssURL = '/css/transaction.css' %}
@@ -18,12 +9,16 @@
 <!-- Networks -->
 <div class="networks-list-wrapper">
   <ul class="networks-list">
-    {% for network in networks %}
-    <li><a href="{{ site.baseurl }}/n/{{ network.name }}">{{ network.name }}</a></li>
+    {% for a_network in networks %}
+    <li {% if a_network.name == network.name %}class="active"{% endif %}>
+      <a href="{{ site.baseurl }}/n/{{ a_network.name }}">{{ a_network.name }}</a>
+    </li>
     {% endfor %}
   </ul>
 </div>
 
+
+<!-- The page header -->
 <header class="main-content-header center">
   <h1>Calculate Cost of <span class="network-name">{{ network.name | capitalize }}</span> Transaction</h1>
 </header>
@@ -49,18 +44,18 @@
 {% endif %}
 
 
-<div id="input-panel">
-  <div role="tabpanel" class="cost-panel">
+<!-- Tab panel for the transactions -->
+<div id="input-panel"><div role="tabpanel" class="cost-panel">
   <!-- tabpanel.start -->
 
   {% macro active(transaction, first) %}
-    {% if (body.transactionType == transaction.type) or (first and not body) %}active{% endif %}
+    {% if (body.transactionType == transaction.name) or (first and not body) %}active{% endif %}
   {% endmacro %}
 
   <!-- Nav tabs -->
   <ul class="nav nav-tabs" role="tablist">
     {% for transaction in network.transactions %}
-    <li role="presentation" class="{{ active(transaction, loop.first) }}"><a href="#{{ transaction.type }}" aria-controls="home" role="tab" data-toggle="tab">{{ transaction.type | capitalize }}</a></li>
+    <li role="presentation" class="{{ active(transaction, loop.first) }}"><a href="#{{ transaction.name }}" aria-controls="home" role="tab" data-toggle="tab">{{ transaction.name | capitalize }}</a></li>
     {% endfor %}
   </ul>
 
@@ -70,11 +65,11 @@
     {% for transaction in network.transactions %}
     <!-- transaction.start -->
 
-    <div role="tabpanel" class="tab-pane {{ active(transaction, loop.first) }}" id="{{ transaction.type }}">
-        <form action="{{ __path }}" method="post">
+    <div role="tabpanel" class="tab-pane {{ active(transaction, loop.first) }}" id="{{ transaction.name }}">
+      <form action="{{ __path }}" method="post">
 
         <!-- Transaction type -->
-        <input type="hidden" name="transactionType" value="{{ transaction.type }}" />
+        <input type="hidden" name="transactionType" value="{{ transaction.name }}" />
 
         <!-- Transaction amount -->
         {% if transaction.amount == false %}
@@ -94,27 +89,26 @@
           <div class="col-xs-10">
             <select class="form-control" name="transactor">
                 {% for class in transaction.classes  %}
-                <option {% if class.transactor == body.transactor %}selected="true"{% endif %} value="{{ class.transactor }}">{{ class.transactor }}</option>
+                <option {% if class.name == body.transactor %}selected="true"{% endif %} value="{{ class.name }}">{{ class.name }}</option>
                 {% endfor %}
             </select>
           </div>
         </div>
 
+        <!-- Submit button -->
         <div class="form-group row">
           <div class="col-xs-12">
             <input type="submit" value="Calculate" class="btn btn-primary pull-right"/>
           </div>
         </div>
 
-        </form>
+      </form>
     </div>
 
     <!-- transaction.end -->
     {% endfor %}
-
   </div>
-
   <!-- tabpanel.end -->
-  </div>
-</div>
+
+</div></div>
 {% endblock %}

@@ -2,10 +2,10 @@
   "name": "safaricom",
   "transactions": [
     {
-      "type": "transfer",
+      "name": "transfer",
       "classes": [
         {
-          "transactor": "registered users",
+          "name": "registered users",
           "ranges": [
             { "low": "-Infinity", "high": 9, "amount": -1 },
             { "low": 10,    "high": 49,    "amount": 1 },
@@ -25,7 +25,7 @@
           ]
         },
         {
-          "transactor": "unregistered users",
+          "name": "unregistered users",
           "ranges": [
             { "low": "-Infinity", "high": 100, "amount": -1 },
             { "low": 101,   "high": 2500,  "amount": 66 },
@@ -42,10 +42,10 @@
       ]
     },
     {
-      "type": "withdrawal",
+      "name": "withdrawal",
       "classes": [
         {
-          "transactor": "agent",
+          "name": "agent",
           "ranges": [
             { "low": "-Infinity", "high": 49, "amount": -1 },
             { "low": 50,    "high": 100,   "amount": 10 },
@@ -63,7 +63,7 @@
           ]
         },
         {
-          "transactor": "atm",
+          "name": "atm",
           "ranges": [
             { "low": "-Infinity", "high": 199, "amount": -1 },
             { "low": 200,   "high": 2500,  "amount": 33 },
@@ -76,40 +76,39 @@
       ]
     },
     {
-      "type": "others",
+      "name": "others",
       "amount": false,
       "classes": [
         {
-          "transactor": "deposits",
+          "name": "deposits",
           "ranges": [
             { "low": "-Infinity", "high": "+Infinity", "amount": 0  }
           ]
         },
         {
-          "transactor": "registration",
+          "name": "registration",
           "ranges": [
             { "low": "-Infinity", "high": "+Infinity", "amount": 0  }
           ]
         },
         {
-          "transactor": "airtime",
+          "name": "airtime",
           "ranges": [
             { "low": "-Infinity", "high": "+Infinity", "amount": 0  }
           ]
         },
         {
-          "transactor": "balance enquiry",
+          "name": "balance enquiry",
           "ranges": [
             { "low": "-Infinity", "high": "+Infinity", "amount": 1  }
           ]
         },
         {
-          "transactor": "PIN change",
+          "name": "PIN change",
           "ranges": [
             { "low": "-Infinity", "high": "+Infinity", "amount": 22  }
           ]
         }
-
       ]
     }
   ]
