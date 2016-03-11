@@ -2,7 +2,7 @@
 
 > Calculate **M**obile **M**oney **T**ransaction **C**ost in **Ke**nya
 >
-> Running at **http://mmtc-ke.forfuture.co.ke**
+> Running at **http://mmtc.forfuture.co.ke**
 
 
 ## contributing:
