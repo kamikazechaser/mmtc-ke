@@ -1,5 +1,5 @@
 {
-  "name": "mtc-ke",
+  "name": "mmtc-ke",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -16,7 +16,15 @@
     "lodash": "^4.6.1",
     "nunjucks": "^2.3.0"
   },
-  "repository": {},
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/forfuturellc/mmtc-ke.git"
+  },
+  "author": {
+    "name": "GochoMugo",
+    "email": "mugo@forfuture.co.ke",
+    "url": "http://www.gmugo.in"
+  },
   "engines": {
     "node": "4.2.x"
   },

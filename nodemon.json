@@ -1,8 +1,0 @@
-{
-  "verbose": true,
-  "watch": [
-    "app/",
-    "app.js",
-    "package.json"
-  ]
-}
