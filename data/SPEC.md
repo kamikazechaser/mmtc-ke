@@ -37,7 +37,7 @@ A single file can only hold one [Network](#type-network) object.
 |Key|Type|Description|
 |---|----|-----------|
 |name|[Name](#type-name)|Name of the class of the transaction|
-|ranges|[Range](#type-range)[]|The ranges in the transaction class|
+|ranges|\[[Range](#type-range)]|The ranges in the transaction class|
 |amount|boolean|`false` if amount is **not** applicable to the class. Otherwise `false`. Default is `true`|
 
 
