@@ -90,4 +90,4 @@ contributions under the **[MIT license][license]**. See the license
 > Happy Coding! :dancer:
 
 
-[license]: https://github.com/Ma3Route/node-sdk/blob/master/LICENSE "view license"
+[license]: https://github.com/forfuturellc/mmtc-ke/blob/master/LICENSE "view license"
