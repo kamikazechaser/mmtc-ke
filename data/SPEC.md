@@ -21,7 +21,7 @@ A single file can only hold one [Network](#type-network) object.
 |Key|Type|Description|
 |---|----|-----------|
 |name|[Name](#type-name)|The name of the Network|
-|transactions|[Transaction](#type-transaction)|The transactions supported by the network|
+|transactions|\[[Transaction](#type-transaction)]|The transactions supported by the network|
 
 <a name="type-transaction"></a>
 ### Transaction
@@ -29,7 +29,7 @@ A single file can only hold one [Network](#type-network) object.
 |Key|Type|Description|
 |---|----|-----------|
 |name|[Name](#type-name)|Type of the transaction|
-|classes|[Class](#type-class)|The different classes of the transaction|
+|classes|\[[Class](#type-class)]|The different classes of the transaction|
 
 <a name="type-class"></a>
 ### Class
