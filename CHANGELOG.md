@@ -10,6 +10,7 @@ Added:
 * Update Data File Format Specification to accommodate for USSD codes (issue #1)
 * Display USSD codes in network pages
 * Update data for networks: safaricom
+* Display table for ranges (issue #3)
 
 
 ## [0.0.0][0.0.0] - 2016-03-11
