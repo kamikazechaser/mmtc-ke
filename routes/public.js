@@ -93,7 +93,7 @@ router
         });
     });
     function renderNetworkPage(req, res, ctx) {
-        return utils.renderPage(req, res, 'transactions/index', _.assign(ctx || {}, {
+        return utils.renderPage(req, res, 'networks/index', _.assign(ctx || {}, {
             networks: engine.getNetworks(),
             network: engine.getNetwork(req.params.name),
             body: _.isEmpty(req.body) ? null : req.body,

@@ -1,0 +1,37 @@
+<form action="{{ __path }}" method="post">
+
+  <!-- Transaction type -->
+  <input type="hidden" name="transactionType" value="{{ transaction.name }}" />
+
+  <!-- Transaction amount -->
+  {% if transaction.amount == false %}
+  <input type="hidden" name="amount" value="5000" />
+  {% else %}
+  <div class="form-group row">
+    <label for="amount" class="col-xs-2">Amount</label>
+    <div class="col-xs-10">
+      <input type="number" name="amount" value="{{ body.amount or 5000 }}" class="form-control" >
+    </div>
+  </div>
+  {% endif %}
+
+  <!-- Transaction transactor -->
+  <div class="form-group row">
+    <label for="transactor" class="col-xs-2">Transactor</label>
+    <div class="col-xs-10">
+      <select class="form-control" name="transactor">
+        {% for class in transaction.classes  %}
+        <option {% if class.name == body.transactor %}selected="true"{% endif %} value="{{ class.name }}">{{ class.name }}</option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+
+  <!-- Submit button -->
+  <div class="form-group row">
+    <div class="col-xs-12">
+      <input type="submit" value="Calculate" class="btn btn-primary pull-right"/>
+    </div>
+  </div>
+
+</form>
