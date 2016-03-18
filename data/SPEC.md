@@ -2,7 +2,7 @@
 
 |Aspect|Detail|
 |------|------|
-|Version|0.0|
+|Version|0.1|
 |Written by|GochoMugo <mugo@forfuture.co.ke>|
 
 The data used in the application in its computations is fed through data files
@@ -22,6 +22,7 @@ A single file can only hold one [Network](#type-network) object.
 |---|----|-----------|
 |name|[Name](#type-name)|The name of the Network|
 |transactions|\[[Transaction](#type-transaction)]|The transactions supported by the network|
+|ussd_codes|\[[USSDCode](#type-ussdcode)]|The available shortcodes|
 
 <a name="type-transaction"></a>
 ### Transaction
@@ -41,8 +42,8 @@ A single file can only hold one [Network](#type-network) object.
 |amount|boolean|`false` if amount is **not** applicable to the class. Otherwise `false`. Default is `true`|
 
 
-### Range
 <a name="type-range"></a>
+### Range
 
 |Key|Type|Description|
 |---|----|-----------|
@@ -63,7 +64,21 @@ This type is based on the native `Number` type in JSON with these few additions:
 Therefore, the cost is accurate to **1 KES**.
 
 
+<a name="type-ussdcode"></a>
+### USSDCode
+
+This is a [USSD][ussd] code, supported by the network.
+
+|Key|Type|Description|
+|---|----|-----------|
+|code|string|The actual USSD code. For example, `*144#`|
+|description|string|Describes the use of the code|
+
+
 <a name="type-name"></a>
 ### Name
 
 This is a string, **uniquely** identifying the named object.
+
+
+[ussd]:https://en.wikipedia.org/wiki/Unstructured_Supplementary_Service_Data
