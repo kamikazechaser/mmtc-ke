@@ -1,4 +1,5 @@
 <script src="{{ site.baseurl }}/vendor/jquery/dist/jquery.min.js"></script>
 <script src="{{ site.baseurl }}/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
 
-{% block scripts %}{% endblock %}
+{% set defaultJSURL = '/js/index.js' %}
+<script src="{{ site.baseurl }}{{ JSURL or defaultJSURL }}"></script>

@@ -1,3 +1,8 @@
+{% macro table_id(transaction, class) %}table-{{ transaction.name | replace(" ", "-") }}-{{ class.name | replace(" ", "-") }}{% endmacro %}
+
+{% macro class_active(class, first) %}{% if (class.name == body.transactor) or (first and not body) %}active{% endif %}{% endmacro %}
+
+
 <form action="{{ __path }}" method="post">
 
   <!-- Transaction type -->
@@ -15,13 +20,13 @@
   </div>
   {% endif %}
 
-  <!-- Transaction transactor -->
   <div class="form-group row">
+    <!-- Transaction transactor -->
     <label for="transactor" class="col-xs-2">Transactor</label>
     <div class="col-xs-10">
-      <select class="form-control" name="transactor">
+      <select class="form-control select-class" name="transactor">
         {% for class in transaction.classes  %}
-        <option {% if class.name == body.transactor %}selected="true"{% endif %} value="{{ class.name }}">{{ class.name }}</option>
+        <option data-table="#{{ table_id(transaction, class) }}" {% if (class.name == body.transactor) %}selected="true"{% endif %} value="{{ class.name }}">{{ class.name }}</option>
         {% endfor %}
       </select>
     </div>
@@ -35,3 +40,36 @@
   </div>
 
 </form>
+
+<!-- List of all the ranges -->
+<section>
+  {% for class in transaction.classes %}
+    <table class="table table-striped table-ranges {{ class_active(class, loop.first) }}" id="{{ table_id(transaction, class) }}">
+      <thead>
+        <th>Range</th>
+        <th>Cost</th>
+      </thead>
+
+      <tbody>
+      {% for range in class.ranges %}
+        <tr>
+          {% macro rename_amount(amount) %}
+            {% if amount == "-Infinity" %}0{% elif amount == "+Infinity" %}&infin;+{% else %}{{ amount }}{% endif %}
+          {% endmacro %}
+
+          {% if range.low == "-Infinity" and range.high == "+Infinity" %}
+          <td>&infin;</td>
+          <td>{{ range.amount }}</td>
+          {% elif range.amount == -1 %}
+          <td>{{ rename_amount(range.low) }} - {{ rename_amount(range.high) }}</td>
+          <td>N/A</td>
+          {% else %}
+          <td>{{ rename_amount(range.low) }} - {{ rename_amount(range.high) }}</td>
+          <td>{{ range.amount }}</td>
+          {% endif %}
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  {% endfor %}
+</section>
