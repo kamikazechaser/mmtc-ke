@@ -111,5 +111,19 @@
         }
       ]
     }
+  ],
+  "ussd_codes": [
+    {
+      "code": "*144#",
+      "description": "credit balance"
+    },
+    {
+      "code": "*544#",
+      "description": "internet bundles"
+    },
+    {
+      "code": "*131",
+      "description": "okoa jahazi"
+    }
   ]
 }
