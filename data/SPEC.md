@@ -2,7 +2,7 @@
 
 |Aspect|Detail|
 |------|------|
-|Version|0.1|
+|Version|0.2|
 |Written by|GochoMugo <mugo@forfuture.co.ke>|
 
 The data used in the application in its computations is fed through data files
@@ -11,18 +11,20 @@ independent of the different networks available.
 
 ## spec:
 
-The data files are written in JSON format.
+The data files are written in [JSON][json] format.
 
-A single file can only hold one [Network](#type-network) object.
 
 <a name="type-network"></a>
 ### Network
+
+A single data file can **only** hold one [Network](#type-network) object.
 
 |Key|Type|Description|
 |---|----|-----------|
 |name|[Name](#type-name)|The name of the Network|
 |transactions|\[[Transaction](#type-transaction)]|The transactions supported by the network|
 |ussd_codes|\[[USSDCode](#type-ussdcode)]|The available shortcodes|
+
 
 <a name="type-transaction"></a>
 ### Transaction
@@ -31,6 +33,8 @@ A single file can only hold one [Network](#type-network) object.
 |---|----|-----------|
 |name|[Name](#type-name)|Type of the transaction|
 |classes|\[[Class](#type-class)]|The different classes of the transaction|
+|amount|boolean|`false` if amount is **not** applicable to the class. *Defaults to `true`.*|
+
 
 <a name="type-class"></a>
 ### Class
@@ -39,7 +43,7 @@ A single file can only hold one [Network](#type-network) object.
 |---|----|-----------|
 |name|[Name](#type-name)|Name of the class of the transaction|
 |ranges|\[[Range](#type-range)]|The ranges in the transaction class|
-|amount|boolean|`false` if amount is **not** applicable to the class. Otherwise `false`. Default is `true`|
+|amount|[Cost](#type-cost)|Amount charged to the user. *This should be provided **only** if parent `Transaction` has `amount` set to `false`.*|
 
 
 <a name="type-range"></a>
@@ -81,4 +85,5 @@ This is a [USSD][ussd] code, supported by the network.
 This is a string, **uniquely** identifying the named object.
 
 
+[json]:http://json.org
 [ussd]:https://en.wikipedia.org/wiki/Unstructured_Supplementary_Service_Data
