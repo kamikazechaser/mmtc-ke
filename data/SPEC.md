@@ -21,9 +21,19 @@ A single data file can **only** hold one [Network](#type-network) object.
 
 |Key|Type|Description|
 |---|----|-----------|
-|name|[Name](#type-name)|The name of the Network|
-|transactions|\[[Transaction](#type-transaction)]|The transactions supported by the network|
+|name|[Name](#type-name)|Name of the Network|
+|meta|[Metadata](#type-metadata)|Metadata associated with the network|
+|transactions|\[[Transaction](#type-transaction)]|Transactions supported by the network|
 |ussd_codes|\[[USSDCode](#type-ussdcode)]|The available shortcodes|
+
+
+<a name="type-metadata"></a>
+### Metadata
+
+|Key|Type|Description|
+|---|----|-----------|
+|spec|String|Specification version the file adheres to|
+|date_updated|[Date](#type-date)|Date on which the data was last updated|
 
 
 <a name="type-transaction"></a>
@@ -85,5 +95,13 @@ This is a [USSD][ussd] code, supported by the network.
 This is a string, **uniquely** identifying the named object.
 
 
+<a name="type-date"></a>
+### Date
+
+Date, in `YYYY-MM-DD` format. See this [W3C document][date] for
+more information.
+
+
+[date]:https://www.w3.org/TR/NOTE-datetime
 [json]:http://json.org
 [ussd]:https://en.wikipedia.org/wiki/Unstructured_Supplementary_Service_Data
