@@ -16,6 +16,11 @@ exports = module.exports = {
 var _ = require('lodash');
 
 
+// own modules
+var errors = require('./errors');
+var networks = require('./networks');
+
+
 /**
  * Calculate the Cost.
  *
@@ -35,30 +40,30 @@ var _ = require('lodash');
 function calculate(name, params) {
   var network, transaction, transactionClass;
 
-  network = getNetwork(name);
+  network = networks.getNetwork(name);
   if (!network) {
-    throw new Error('NetworkNotFoundError');
+    throw new errors.NetworkNotFound(`network '${name}' not found`);
   }
 
   transaction = network.transactions.find(function(t) {
     return params.transactionType === t.name;
   });
   if (!transaction) {
-    throw new Error('TransactionNotFoundError');
+    throw new errors.TransactionNotFoundError(`transaction '${params.transactionType}' not found`);
   }
 
   transactionClass = transaction.classes.find(function(c) {
     return params.transactor === c.name;
   });
   if (!transactionClass) {
-    throw new Error('TransactionClassNotFoundError');
+    throw new errors.TransactionClassNotFoundError(`transaction '${params.transactor}' not found`);
   }
 
   var amount, range;
 
   amount = parseInt(params.amount, 10);
   if (amount < 0) {
-    throw new Error('InvalidAmountError');
+    throw new errors.InvalidAmountError(`amount '${params.amount}' is not valid`);
   }
 
   range = transactionClass.ranges.find(function(r) {
@@ -66,7 +71,7 @@ function calculate(name, params) {
     return r !== null && r.low <= amount && amount <= r.high;
   });
   if (!range) {
-    throw new Error('RangeNotFoundError');
+    throw new errors.RangeNotFoundError(`range for the amount '${params.amount}' not found`);
   }
 
   return range.amount;

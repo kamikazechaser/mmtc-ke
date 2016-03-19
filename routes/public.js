@@ -93,9 +93,17 @@ router
         });
     });
     function renderNetworkPage(req, res, ctx) {
+        var network = engine.networks.getNetwork(req.params.name);
+
+        if (!network) {
+          return utils.renderPage(req, res, 'error', {
+              error: new engine.errors.NetworkNotFoundError(`network '${req.params.name}' not found`),
+          });
+        }
+
         return utils.renderPage(req, res, 'networks/index', _.assign(ctx || {}, {
             networks: engine.networks.getNetworks(),
-            network: engine.networks.getNetwork(req.params.name),
+            network: network,
             body: _.isEmpty(req.body) ? null : req.body,
         }));
     }

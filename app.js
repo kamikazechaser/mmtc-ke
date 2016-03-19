@@ -67,7 +67,9 @@ app.use(routes);
 
 debug('mounting catch-all handler');
 app.use(function(req, res, next) {
-    return next(new Error('404! Page Not Found!'));
+    return routes.utils.renderPage(req, res, 'error', {
+      error: new engine.errors.PageNotFoundError(`page '${req.path}' not found`),
+    });
 });
 
 
