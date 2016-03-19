@@ -7,6 +7,7 @@
 
 
 // own modules
+var clients = require('./clients');
 var errors = require('./errors');
 var math = require('./math');
 var networks = require('./networks');
@@ -15,6 +16,7 @@ var networks = require('./networks');
 exports = module.exports = {
   init: init,
 
+  clients: clients,
   errors: errors,
   math: math,
   networks: networks,

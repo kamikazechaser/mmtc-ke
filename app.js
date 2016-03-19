@@ -20,6 +20,7 @@ var pkg = require('./package.json');
 // module variables
 var app = express();
 var debug = Debug('mmtc-ke:app');
+var logger = engine.clients.getLogger();
 var nunjucksEnv;
 
 
@@ -75,7 +76,7 @@ app.use(function(req, res, next) {
 
 debug('mounting middleware for error handling');
 app.use(function(err, req, res, next) {
-    console.error(err);
+    logger.error(err);
     return routes.utils.renderPage(req, res, 'error', {
         error: err,
     });
@@ -84,5 +85,6 @@ app.use(function(err, req, res, next) {
 
 debug('starting server');
 app.listen(config.get('server.port'), config.get('server.ip'), function() {
+    logger.info('server listening');
     debug('server started at http://%s:%s', config.get('server.ip'), config.get('server.port'));
 });
