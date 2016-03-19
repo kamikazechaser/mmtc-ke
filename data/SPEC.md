@@ -33,7 +33,7 @@ A single data file can **only** hold one [Network](#type-network) object.
 |---|----|-----------|
 |name|[Name](#type-name)|Type of the transaction|
 |classes|\[[Class](#type-class)]|The different classes of the transaction|
-|amount|boolean|`false` if amount is **not** applicable to the class. *Defaults to `true`.*|
+|amount_input|boolean|`false` if an amount, as input to the transaction, is **not** applicable. *Defaults to `true`.*|
 
 
 <a name="type-class"></a>
