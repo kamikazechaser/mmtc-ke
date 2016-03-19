@@ -43,7 +43,7 @@ A single data file can **only** hold one [Network](#type-network) object.
 |---|----|-----------|
 |name|[Name](#type-name)|Name of the class of the transaction|
 |ranges|\[[Range](#type-range)]|The ranges in the transaction class|
-|amount|[Cost](#type-cost)|Amount charged to the user. *This should be provided **only** if parent `Transaction` has `amount` set to `false`.*|
+|amount|[Cost](#type-cost)|Amount charged to the user. *This should be provided __only__ if parent `Transaction` has `amount` set to `false`.*|
 
 
 <a name="type-range"></a>
