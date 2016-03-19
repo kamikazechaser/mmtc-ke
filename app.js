@@ -67,15 +67,14 @@ app.use(routes);
 
 debug('mounting catch-all handler');
 app.use(function(req, res, next) {
-    return next(new Error('404'));
+    return next(new Error('404! Page Not Found!'));
 });
 
 
 debug('mounting middleware for error handling');
 app.use(function(err, req, res, next) {
     console.error(err);
-    return res.status(500).end();
-    return routes.utils.renderPage(req, res, 'errors/index', {
+    return routes.utils.renderPage(req, res, 'error', {
         error: err,
     });
 });

@@ -1,0 +1,23 @@
+{#
+ # Error page
+ #
+ # variables:
+ # 1. error: error
+ #}
+{% extends '_layouts/page.html' %}
+
+
+{# variables #}
+{% set main_title = 'Error' %}
+{% set cssURL = '/css/index.css' %}
+
+
+{# blocks #}
+{% block main_content %}
+
+<div class="alert alert-danger">
+  <strong>Crap!</strong> {{ error.message }}
+</div>
+
+
+{% endblock %}
