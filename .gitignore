@@ -3,3 +3,9 @@
 
 # npm-installed modules
 node_modules/
+
+# sass output
+web/css/
+
+# vendor files
+web/vendor/

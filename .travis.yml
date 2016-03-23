@@ -1,0 +1,18 @@
+language: node_js
+node_js:
+- '4.2'
+- '0.11'
+- '0.10'
+before_deploy:
+- mv .openshift/gitignore .gitignore
+deploy:
+  provider: openshift
+  user: mugo@forfuture.co.ke
+  password:
+    secure: UeYKxuX479enwcn1rziErDtnHjR5RFu0a4zK83qZKPhgsXbk+NUXw20fMGtRQvfK/YKm5RW3hqQup6d8dinUJeTqANI4xeunhwV331nWUyzzhRZJUXPb0IiD3idJDpiDDH05leQzSp/8uGt1wb9fYPe1OoN3ylq46RT5kW0tQ/CqkjIOkTPgrX0jY1moANse4RfvGD/6hmgL8nrOM6mqNG2n8fpnoRdznAkZkQlV/vjLEn45SpQEWGmCwn4uFFouXaV3WQMgcuuNvKWQBRS9ZY0VwSNdZoTXvFqaHTxHaPADoMtxszHY18q9XiRpr2TBoBjEXQYtFWBTVN7n3kkQXLHzoMJk/LfsWW3z8lUHVU7Q7MJyuFLj4qRP85neLKQ38CahUCCxbr5IaxvS9/PMysYJi34LYR43SiK2WBf6gdH6SB/GHEJA2IU8TjNmfA0LVbhS/zaDCLD+NRxXghhsaIXAb5JIYfYiOKDwA5WVcIk/Tfz5CpM6M8pYbiP3PYn2bYFr7OY9HL78z0+7NqU4YYiIlgfPf0TKz/FDmtgMJErFNbZbu72uPBryUotjC7zTkSQwtRmyFXGmtc/OpLEnTr3jSK1Sx7BbS1IsravMycNQtzygAykT7SotyhinjE+fXY0fXP59UmQvV/SMjbc6j2GSWsyU4JBF2BV7TpHZMAM=
+  app: mmtcke
+  domain: forfutureco
+  on:
+    repo: forfuturellc/mmtc-ke
+    branch: master
+  skip_cleanup: true

@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "prestart": "grunt build",
-    "start": "forever app.js"
+    "postinstall": "bower install",
+    "start": "forever app.js",
+    "test": "echo no tests!!!"
   },
   "dependencies": {
     "body-parser": "^1.15.0",

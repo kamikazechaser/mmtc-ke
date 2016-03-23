@@ -1,8 +1,0 @@
-# sass's compiler cache
-.sass-cache/
-
-# sass output
-css/
-
-# vendor files
-vendor/
