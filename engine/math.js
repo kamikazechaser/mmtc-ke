@@ -59,6 +59,10 @@ function calculate(name, params) {
     throw new errors.TransactionClassNotFoundError(`transaction '${params.transactor}' not found`);
   }
 
+  if (transaction.amount_input === false) {
+    return transactionClass.amount;
+  }
+
   var amount, range;
 
   amount = parseInt(params.amount, 10);

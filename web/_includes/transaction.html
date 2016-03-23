@@ -9,7 +9,7 @@
   <input type="hidden" name="transactionType" value="{{ transaction.name }}" />
 
   <!-- Transaction amount -->
-  {% if transaction.amount == false %}
+  {% if transaction.amount_input == false %}
   <input type="hidden" name="amount" value="5000" />
   {% else %}
   <div class="form-group row">
@@ -51,16 +51,19 @@
       </thead>
 
       <tbody>
-      {% for range in class.ranges %}
+        {% if transaction.amount_input == false %}
+        <tr>
+          <td>&infin;</td>
+          <td>{{ class.amount }}</td>
+        </tr>
+        {% else %}
+        {% for range in class.ranges %}
         <tr>
           {% macro rename_amount(amount) %}
             {% if amount == "-Infinity" %}0{% elif amount == "+Infinity" %}&infin;+{% else %}{{ amount }}{% endif %}
           {% endmacro %}
 
-          {% if range.low == "-Infinity" and range.high == "+Infinity" %}
-          <td>&infin;</td>
-          <td>{{ range.amount }}</td>
-          {% elif range.amount == -1 %}
+          {% if range.amount == -1 %}
           <td>{{ rename_amount(range.low) }} - {{ rename_amount(range.high) }}</td>
           <td>N/A</td>
           {% else %}
@@ -68,7 +71,8 @@
           <td>{{ range.amount }}</td>
           {% endif %}
         </tr>
-      {% endfor %}
+        {% endfor %}
+        {% endif %}
       </tbody>
     </table>
   {% endfor %}
