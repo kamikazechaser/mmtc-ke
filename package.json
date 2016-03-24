@@ -1,6 +1,6 @@
 {
   "name": "mmtc-ke",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "postinstall": "bower install",
@@ -10,7 +10,6 @@
   "dependencies": {
     "body-parser": "^1.15.0",
     "bower": "^1.7.7",
-    "cfenv": "^1.0.3",
     "common-errors": "^0.5.3",
     "config": "^1.19.0",
     "debug": "^2.2.0",
