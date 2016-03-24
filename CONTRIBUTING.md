@@ -12,7 +12,7 @@ Opening such a duplicate issue, will force us to close it, mark it as
 
 ## Code Contribution:
 
-> We are glad that you can take the time and help us improve this SDK.
+> We are glad that you can take the time and help us improve this Application.
 
 We are using Git branching model identical to
 [this one](http://nvie.com/posts/a-successful-git-branching-model/). Ensure
@@ -26,7 +26,7 @@ your copy locally:
 
 ```bash
 $ git clone https://github.com/<YourUsername>/mmtc-ke.git
-$ cd node-sdk
+$ cd mmtc-ke
 ```
 
 ### 2. Branch

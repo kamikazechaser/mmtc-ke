@@ -1,0 +1,17 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>USSD Code</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {% for code in network.ussd_codes %}
+    <tr>
+      <td>{{ code.code }}</td>
+      <td>{{ code.description }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>

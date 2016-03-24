@@ -17,7 +17,7 @@ var router = express.Router();
 // home page
 router.get("/", function(req, res) {
     return utils.renderPage(req, res, 'index', {
-        networks: engine.getNetworks(),
+        networks: engine.networks.getNetworks(),
     });
 });
 
@@ -57,7 +57,7 @@ router
         var cost;
 
         try {
-            cost = engine.calculate(req.params.name, req.body);
+            cost = engine.math.calculate(req.params.name, req.body);
         } catch(err) {
             return renderNetworkPage(req, res, {
                 result: {
@@ -93,9 +93,17 @@ router
         });
     });
     function renderNetworkPage(req, res, ctx) {
-        return utils.renderPage(req, res, 'transactions/index', _.assign(ctx || {}, {
-            networks: engine.getNetworks(),
-            network: engine.getNetwork(req.params.name),
+        var network = engine.networks.getNetwork(req.params.name);
+
+        if (!network) {
+          return utils.renderPage(req, res, 'error', {
+              error: new engine.errors.NetworkNotFoundError(`network '${req.params.name}' not found`),
+          });
+        }
+
+        return utils.renderPage(req, res, 'networks/index', _.assign(ctx || {}, {
+            networks: engine.networks.getNetworks(),
+            network: network,
             body: _.isEmpty(req.body) ? null : req.body,
         }));
     }

@@ -1,6 +1,7 @@
 {
   "statics": [
     "css",
+    "js",
     "static",
     "vendor"
   ]

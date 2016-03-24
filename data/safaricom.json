@@ -1,5 +1,9 @@
 {
   "name": "safaricom",
+  "meta": {
+    "spec": "0.2",
+    "date_updated": "2016-03-25"
+  },
   "transactions": [
     {
       "name": "transfer",
@@ -77,39 +81,43 @@
     },
     {
       "name": "others",
-      "amount": false,
+      "amount_input": false,
       "classes": [
         {
           "name": "deposits",
-          "ranges": [
-            { "low": "-Infinity", "high": "+Infinity", "amount": 0  }
-          ]
+          "amount": 0
         },
         {
           "name": "registration",
-          "ranges": [
-            { "low": "-Infinity", "high": "+Infinity", "amount": 0  }
-          ]
+          "amount": 0
         },
         {
           "name": "airtime",
-          "ranges": [
-            { "low": "-Infinity", "high": "+Infinity", "amount": 0  }
-          ]
+          "amount": 0
         },
         {
           "name": "balance enquiry",
-          "ranges": [
-            { "low": "-Infinity", "high": "+Infinity", "amount": 1  }
-          ]
+          "amount": 1
         },
         {
           "name": "PIN change",
-          "ranges": [
-            { "low": "-Infinity", "high": "+Infinity", "amount": 22  }
-          ]
+          "amount": 22
         }
       ]
+    }
+  ],
+  "ussd_codes": [
+    {
+      "code": "*144#",
+      "description": "credit balance"
+    },
+    {
+      "code": "*544#",
+      "description": "internet bundles"
+    },
+    {
+      "code": "*131#",
+      "description": "okoa jahazi"
     }
   ]
 }

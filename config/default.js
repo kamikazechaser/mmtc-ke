@@ -1,16 +1,11 @@
-// npm-installed modules
-var cfenv = require('cfenv');
-
-
 // module variables
-var appEnv = cfenv.getAppEnv();
 var config = {};
 
 
 // server configuration
 config.server = {};
-config.server.port = appEnv.port;
-config.server.ip = '0.0.0.0';
+config.server.port = process.env.OPENSHIFT_NODEJS_PORT || 8090;
+config.server.ip = process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
 
 
 // site configuration
