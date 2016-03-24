@@ -2,7 +2,7 @@
   "name": "safaricom",
   "meta": {
     "spec": "0.2",
-    "date_updated": "2016-03-23"
+    "date_updated": "2016-03-25"
   },
   "transactions": [
     {
@@ -116,7 +116,7 @@
       "description": "internet bundles"
     },
     {
-      "code": "*131",
+      "code": "*131#",
       "description": "okoa jahazi"
     }
   ]
