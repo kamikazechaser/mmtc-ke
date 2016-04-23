@@ -114,8 +114,9 @@ router
 
 
 // News page
-router.get("/news", function(req, res) {
-    return utils.renderPage(req, res, "news/index");
+router.get("/news", function(req, res, next) {
+  var filepath = path.resolve(__dirname, '../web/_raw/news.md');
+  return renderMarkdownPage(req, res, next, filepath);
 });
 
 
