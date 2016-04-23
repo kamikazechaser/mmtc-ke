@@ -5,6 +5,7 @@
   "scripts": {
     "postinstall": "bower install",
     "start": "forever app.js",
+    "start-dev": "DEBUG=mmtc-ke:* nodemon app.js",
     "test": "echo no tests!!!"
   },
   "dependencies": {
