@@ -24,6 +24,7 @@ compatible, consider sending a pull request.
 * [starting the application](#start)
 * [data entry](#data-entry)
 * [deployment](#deploy)
+* [news](#news)
 
 
 <a name="arch"></a>
@@ -98,6 +99,25 @@ information concerning the hosting server, etc. Also, CC the information
 to we@forfuture.co.ke, with a suitable subject line.
 
 [openshift]:http://openshift.redhat.com/
+
+
+<a name="news"></a>
+### news:
+
+You can find major news concerning the application at
+http://mmtc.forfuture.co.ke/news/.
+
+Since we are avoiding restarting the application, just to reflect any
+recently-added news, the developer in-charge of deployment handles this
+process:
+
+* a new branch, from the **develop** branch is created with a name
+  in a format, similar to `news/2016-04-23`.
+* new news are added to the beginning of `web/_raw/news.md`
+* while the new branch is reviewed and merged back, the updated news.md
+  should be uploaded to the server, using SSH or similar tool.
+
+News are now updated!
 
 
 **HAPPY HACKING!**
