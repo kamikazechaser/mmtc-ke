@@ -23,6 +23,7 @@ compatible, consider sending a pull request.
 * [application architecture](#arch)
 * [starting the application](#start)
 * [data entry](#data-entry)
+* [deployment](#deploy)
 
 
 <a name="arch"></a>
@@ -77,3 +78,26 @@ To get started:
 
 [data]:https://github.com/forfuturellc/mmtc-ke/blob/master/data/
 [spec]:https://github.com/forfuturellc/mmtc-ke/blob/master/data/SPEC.md
+
+
+<a name="deploy"></a>
+### deployment:
+
+The application is currently being deployed on [OpenShift][openshift]
+**FOR FREE**. We highly recommend you get familiar with the platform.
+It is quite worthwhile.
+
+While we have set the CI to automatically deploy the application,
+particularly on pushing to **master** branch, we assign a developer
+in charge of any deployment issues that may arise.
+
+* developer-in-charge: [GochoMugo](https://github.com/GochoMugo)
+
+Feel free to contact the developer, should you want to submit sensitive
+information concerning the hosting server, etc. Also, CC the information
+to we@forfuture.co.ke, with a suitable subject line.
+
+[openshift]:http://openshift.redhat.com/
+
+
+**HAPPY HACKING!**
