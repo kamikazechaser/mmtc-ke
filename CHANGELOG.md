@@ -5,6 +5,12 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][Unreleased]
 
+Added:
+
+* Add terms and conditions
+* Add pages for *news*
+* Add more documentation on hacking on the code
+
 
 ## [0.1.0][0.1.0] - 2016-03-25
 
