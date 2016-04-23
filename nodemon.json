@@ -1,0 +1,10 @@
+{
+  "verbose": true,
+  "watch": [
+    "app.js",
+    "config/",
+    "data/",
+    "engine/",
+    "routes/"
+  ]
+}
