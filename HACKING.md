@@ -22,6 +22,7 @@ compatible, consider sending a pull request.
 
 * [application architecture](#arch)
 * [starting the application](#start)
+* [data entry](#data-entry)
 
 
 <a name="arch"></a>
@@ -59,3 +60,20 @@ The application can be started in either **development** or **production** mode.
 $ npm start            # start in production mode
 $ npm run start-dev    # start in development mode
 ```
+
+
+<a name="data-entry"></a>
+### data entry:
+
+Data entry is a one-off task, that is crucial to this application, so as to
+ensure the data used does **not** end up being stale and inaccurate. This
+is one of the most simple yet cumbersome development task. **No**
+extensive programming knowledge is required.
+
+To get started:
+
+* read the existing data files in [`data/`][data]
+* understand thee [Data File Specification][spec] being used
+
+[data]:https://github.com/forfuturellc/mmtc-ke/blob/master/data/
+[spec]:https://github.com/forfuturellc/mmtc-ke/blob/master/data/SPEC.md
