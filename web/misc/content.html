@@ -1,0 +1,12 @@
+{#
+ # Shell page for content, in markdown files
+ #}
+{% extends '_layouts/page.html' %}
+
+{# variables #}
+{% set cssURL = '/css/content.css' %}
+
+{# blocks #}
+{% block main_content %}
+{{ content | safe }}
+{% endblock %}

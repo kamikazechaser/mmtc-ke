@@ -11,6 +11,7 @@ var clients = require('./clients');
 var errors = require('./errors');
 var math = require('./math');
 var networks = require('./networks');
+var pages = require('./pages');
 
 
 exports = module.exports = {
@@ -20,6 +21,7 @@ exports = module.exports = {
   errors: errors,
   math: math,
   networks: networks,
+  pages: pages,
 };
 
 
