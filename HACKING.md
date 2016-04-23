@@ -49,7 +49,7 @@ The application is built using, mainly:
 
 [express]:http://expressjs.com/
 [node-config]:https://github.com/lorenwest/node-config
-[nunjucks]:http://nunjucks.github.io/
+[nunjucks]:https://mozilla.github.io/nunjucks
 
 
 <a name="start"></a>
