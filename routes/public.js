@@ -1,3 +1,7 @@
+// built-in modules
+var path = require('path');
+
+
 // npm-installed modules
 var _ = require('lodash');
 var Debug = require("debug");
@@ -110,15 +114,33 @@ router
 
 
 // News page
-router.get("/news", function(req, res) {
-    return utils.renderPage(req, res, "news/index");
+router.get("/news", function(req, res, next) {
+  var filepath = path.resolve(__dirname, '../web/_raw/news.md');
+  return renderMarkdownPage(req, res, next, filepath);
 });
 
 
 // Terms and conditions
-router.use('/tcs', function(req, res) {
-    return utils.renderPage(req, res, 'misc/tcs');
+router.use('/tcs', function(req, res, next) {
+  var filepath = path.resolve(__dirname, '../web/_raw/tcs.md');
+  return renderMarkdownPage(req, res, next, filepath);
 });
+
+
+/**
+ * Render a markdown page
+ */
+function renderMarkdownPage(req, res, next, filepath) {
+  return engine.pages.getHTML(filepath, function(getErr, html) {
+    if (getErr) {
+      return next(getErr);
+    }
+
+    return utils.renderPage(req, res, 'misc/content', {
+      content: html,
+    });
+  });
+}
 
 
 // expose the router

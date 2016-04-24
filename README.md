@@ -5,15 +5,12 @@
 > Running at **http://mmtc.forfuture.co.ke**
 
 
-## contributing:
+## hacking:
 
-Read [CONTRIBUTING.md][contrib] for details on how development is done
-in this project. We are enforcing a code of conduct, described in
-[CODE\_OF\_CONDUCT.md][coc].
+To start hacking on the application, read [HACKING.md][hacking] for
+guidelines and other relevant information.
 
-
-[contrib]:https://github.com/forfuturellc/mmtc-ke/blob/master/CONTRIBUTING.md
-[coc]:https://github.com/forfuturellc/mmtc-ke/blob/master/CODE_OF_CONDUCT.md
+[hacking]:https://github.com/forfuturellc/mmtc-ke/blob/master/HACKING.md
 
 
 ## license:
