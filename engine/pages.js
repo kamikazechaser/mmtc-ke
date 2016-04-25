@@ -20,7 +20,10 @@ var showdown = require('showdown');
 
 
 // module variables
-var converter = new showdown.Converter();
+var converter = new showdown.Converter({
+  simplifiedAutoLink: true,
+  tables: true,
+});
 
 
 /**
