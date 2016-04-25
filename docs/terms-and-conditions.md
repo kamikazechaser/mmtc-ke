@@ -1,10 +1,10 @@
 # terms and conditions
 
-Your usage of this application, at http://mmtc.forfuture.co.ke, assumes your
+Your usage of this application, at http://mmtc.forfuture.co.ke , assumes your
 acceptance of these terms and conditions.
 
 1. **Source Code**: The source code for this application is available on
-   Github at https://github.com/forfuturellc/mmtc-ke. Proceed to the code
+   Github at https://github.com/forfuturellc/mmtc-ke . Proceed to the code
    repository for more information on licensing. Auditing of the source
    code is highly welcome.
 1. **Accuracy of Results**: We do **not** guarantee the accuracy of any
