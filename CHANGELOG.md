@@ -9,6 +9,10 @@ Added:
 
 * Tracking page views with [Google Analytics][analytics]
 
+Changed:
+
+* Minor UI polishes
+
 [analytics]:https://analytics.google.com
 
 
