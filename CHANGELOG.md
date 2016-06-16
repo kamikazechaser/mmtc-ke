@@ -8,6 +8,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 Added:
 
 * Add Support for [Airtel Money][airtel-money]
+* Rename 'Safaricom' to 'Mpesa'
 * Tracking page views with [Google Analytics][analytics]
 
 Changed:
