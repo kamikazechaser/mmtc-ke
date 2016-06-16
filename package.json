@@ -3,6 +3,7 @@
   "version": "0.2.0",
   "private": true,
   "scripts": {
+    "build": "grunt build",
     "postinstall": "bower install",
     "start": "forever app.js",
     "start-dev": "DEBUG=mmtc-ke:* nodemon app.js",
