@@ -13,7 +13,9 @@
   <input type="hidden" name="amount" value="5000" />
   {% else %}
   <div class="form-group row">
-    <label for="amount" class="col-xs-2">Amount</label>
+    <div class="col-xs-2 form-label">
+      <label for="amount">Amount</label>
+    </div>
     <div class="col-xs-10">
       <input type="number" name="amount" value="{{ body.amount or 5000 }}" class="form-control" >
     </div>
@@ -22,7 +24,9 @@
 
   <div class="form-group row">
     <!-- Transaction transactor -->
-    <label for="transactor" class="col-xs-2">Transactor</label>
+    <div class="col-xs-2 form-label">
+      <label for="transactor">Transactor</label>
+    </div>
     <div class="col-xs-10">
       <select class="form-control select-class" name="transactor">
         {% for class in transaction.classes  %}

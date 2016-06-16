@@ -1,3 +1,4 @@
+{% if network.ussd_codes.length %}
 <table class="table table-striped">
   <thead>
     <tr>
@@ -15,3 +16,9 @@
     {% endfor %}
   </tbody>
 </table>
+{% else %}
+<div class="alert alert-sm alert-danger">
+  <strong>Sorry!</strong>
+  No USSD Codes found in our data.
+</div>
+{% endif %}

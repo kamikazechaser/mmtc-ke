@@ -115,14 +115,14 @@ router
 
 // News page
 router.get("/news", function(req, res, next) {
-  var filepath = path.resolve(__dirname, '../web/_raw/news.md');
+  var filepath = path.resolve(__dirname, '../docs/news.md');
   return renderMarkdownPage(req, res, next, filepath);
 });
 
 
 // Terms and conditions
 router.use('/tcs', function(req, res, next) {
-  var filepath = path.resolve(__dirname, '../web/_raw/tcs.md');
+  var filepath = path.resolve(__dirname, '../docs/terms-and-conditions.md');
   return renderMarkdownPage(req, res, next, filepath);
 });
 

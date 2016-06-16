@@ -2,7 +2,7 @@
 
 |Aspect|Detail|
 |------|------|
-|Version|0.2|
+|Version|0.3|
 |Written by|GochoMugo <mugo@forfuture.co.ke>|
 
 The data used in the application in its computations is fed through data files
@@ -34,6 +34,7 @@ A single data file can **only** hold one [Network](#type-network) object.
 |---|----|-----------|
 |spec|String|Specification version the file adheres to|
 |date_updated|[Date](#type-date)|Date on which the data was last updated|
+|url|String|A valid URL to the network's homepage, preferably to the page concerning money transactions|
 
 
 <a name="type-transaction"></a>
