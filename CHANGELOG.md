@@ -5,6 +5,12 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][Unreleased]
 
+Added:
+
+* Tracking page views with [Google Analytics][analytics]
+
+[analytics]:https://analytics.google.com
+
 
 ## [0.2.0][0.2.0] - 2016-04-24
 
