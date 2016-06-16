@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+# this install all dependencies + devDevdependencies
+NODE_ENV=development npm install
+
+# building files
+npm build
