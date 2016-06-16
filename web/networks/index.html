@@ -46,8 +46,8 @@
 
 
 <!-- Tab panel for the transactions -->
+<!-- tabpanel.start -->
 <div id="input-panel"><div role="tabpanel" class="cost-panel">
-  <!-- tabpanel.start -->
 
   {% macro active(transaction, first) %}
     {% if (body.transactionType == transaction.name) or (first and not body) %}active{% endif %}
@@ -79,6 +79,18 @@
 
   </div>
 
-  <!-- tabpanel.end -->
 </div></div>
+<!-- tabpanel.end -->
+
+<!-- more information -->
+<div class="networks-meta">
+  {% if network.meta.date_updated %}Data last updated on {{ network.meta.date_updated }}{% endif %}
+  {% if network.meta.url %}
+  <p>
+    Get more information on {{ network.name }} at
+    <a href="{{ network.meta.url }}">{{ network.meta.url }}</a>
+  </p>
+  {% endif %}
+</div>
+<!-- more-information.end -->
 {% endblock %}
