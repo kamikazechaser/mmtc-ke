@@ -1,8 +1,8 @@
 {
-  "name": "safaricom",
+  "name": "mpesa",
   "meta": {
     "spec": "0.2",
-    "date_updated": "2016-03-25"
+    "date_updated": "2016-06-16"
   },
   "transactions": [
     {
