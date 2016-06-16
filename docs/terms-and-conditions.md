@@ -13,7 +13,8 @@ acceptance of these terms and conditions.
    reasons such as software crashes and development work.
 1. **Privacy Policy**: We do **not** use cookies or collect any personal
    information, except that submitted directly in the various forms made
-   available in the application itself.
+   available in the application itself. However, we track page views using
+   [Google Analytics][analytics].
 1. **Copyright**: Any brand names and trademarks used in the application
    belong to the respective companies.
 1. **Service Abuse**: Any actions you undertake against this application
@@ -22,3 +23,6 @@ acceptance of these terms and conditions.
 
 For any copyright-related and other legal issues may be addressed to
 Forfuture, LLC at we {at} forfuture {dot} co {dot} ke.
+
+
+[analytics]:https://analytics.google.com
