@@ -1,0 +1,100 @@
+{
+  "name": "airtel money",
+  "meta": {
+    "spec": "0.2",
+    "date_updated": "2016-06-16",
+    "url": "http://africa.airtel.com/wps/wcm/connect/AfricaRevamp/Kenya/Airtel_Money/Home/Personal/AirtelMoney_tariffs"
+  },
+  "transactions": [
+    {
+      "name": "transfer",
+      "classes": [
+        {
+          "name": "registered users",
+          "ranges": [
+            { "low": "-Infinity", "high": 49, "amount": -1 },
+            { "low": 50,     "high": 100,     "amount": 0 },
+            { "low": 101,    "high": 1000,    "amount": 0 },
+            { "low": 1001,   "high": 2500,    "amount": 0 },
+            { "low": 2501,   "high": 5000,    "amount": 0 },
+            { "low": 5001,   "high": 10000,   "amount": 0 },
+            { "low": 10001,  "high": 20000,   "amount": 0 },
+            { "low": 20001,  "high": 35000,   "amount": 0 },
+            { "low": 35001,  "high": 50000,   "amount": 0 },
+            { "low": 50001,  "high": 70000,   "amount": 0 },
+            { "low": 70001,  "high": "+Infinity", "amount": -1 }
+          ]
+        },
+        {
+          "name": "unregistered users",
+          "ranges": [
+            { "low": "-Infinity", "high": 49, "amount": -1 },
+            { "low": 50,     "high": 100,     "amount": 0 },
+            { "low": 101,    "high": 1000,    "amount": 0 },
+            { "low": 1001,   "high": 2500,    "amount": 0 },
+            { "low": 2501,   "high": 5000,    "amount": 0 },
+            { "low": 5001,   "high": 10000,   "amount": 0 },
+            { "low": 10001,  "high": 20000,   "amount": 0 },
+            { "low": 20001,  "high": 35000,   "amount": 0 },
+            { "low": 35001,  "high": 50000,   "amount": 0 },
+            { "low": 50001,  "high": 70000,   "amount": 0 },
+            { "low": 70001,  "high": "+Infinity", "amount": -1 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "withdrawal",
+      "classes": [
+        {
+          "name": "agent",
+          "ranges": [
+            { "low": "-Infinity", "high": 49, "amount": -1 },
+            { "low": 50,     "high": 100,     "amount": 9 },
+            { "low": 101,    "high": 1000,    "amount": 25 },
+            { "low": 1001,   "high": 2500,    "amount": 26 },
+            { "low": 2501,   "high": 5000,    "amount": 45 },
+            { "low": 5001,   "high": 10000,   "amount": 75 },
+            { "low": 10001,  "high": 20000,   "amount": 145 },
+            { "low": 20001,  "high": 35000,   "amount": 175 },
+            { "low": 35001,  "high": 50000,   "amount": 270 },
+            { "low": 50001,  "high": 70000,   "amount": 330 },
+            { "low": 70001,  "high": "+Infinity", "amount": -1 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "others",
+      "amount_input": false,
+      "classes": [
+        {
+          "name": "deposits",
+          "amount": 0
+        },
+        {
+          "name": "transaction reports",
+          "amount": 20
+        },
+        {
+          "name": "airtime",
+          "amount": 0
+        },
+        {
+          "name": "balance enquiry",
+          "amount": 0
+        },
+        {
+          "name": "Nickname Change",
+          "amount": 20
+        },
+        {
+          "name": "PIN change",
+          "amount": 20
+        }
+      ]
+    }
+  ],
+  "ussd_codes": [
+  ]
+}

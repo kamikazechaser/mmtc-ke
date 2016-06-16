@@ -7,12 +7,14 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 Added:
 
+* Add Support for [Airtel Money][airtel-money]
 * Tracking page views with [Google Analytics][analytics]
 
 Changed:
 
 * Minor UI polishes
 
+[airtel-money]:http://africa.airtel.com/wps/wcm/connect/AfricaRevamp/Kenya/Airtel_Money/Home/Personal/AirtelMoney_tariffs
 [analytics]:https://analytics.google.com
 
 
