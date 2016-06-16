@@ -2,7 +2,8 @@
   "name": "mpesa",
   "meta": {
     "spec": "0.2",
-    "date_updated": "2016-06-16"
+    "date_updated": "2016-06-16",
+    "url": "http://www.safaricom.co.ke/personal/m-pesa"
   },
   "transactions": [
     {
@@ -108,16 +109,16 @@
   ],
   "ussd_codes": [
     {
+      "code": "*131#",
+      "description": "okoa jahazi"
+    },
+    {
       "code": "*144#",
       "description": "credit balance"
     },
     {
       "code": "*544#",
       "description": "internet bundles"
-    },
-    {
-      "code": "*131#",
-      "description": "okoa jahazi"
     }
   ]
 }

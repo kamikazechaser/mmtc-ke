@@ -10,6 +10,7 @@ Added:
 * Add Support for [Airtel Money][airtel-money]
 * Rename 'Safaricom' to 'Mpesa'
 * Tracking page views with [Google Analytics][analytics]
+* Updated schema and views to accommodate for URL to networks' homepages
 
 Changed:
 
