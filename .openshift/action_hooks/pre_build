@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
-# this install all dependencies + devDevdependencies
+cd "${OPENSHIFT_REPO_DIR}"
+
+# this installs all dependencies + devDevdependencies
 NODE_ENV=development npm install
 
 # building files
-npm build
+npm run build
