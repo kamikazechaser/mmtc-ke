@@ -5,6 +5,14 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][Unreleased]
 
+Added:
+
+* Expose API
+
+Changed:
+
+* [maintenance] Update all dependencies
+
 
 ## [0.3.0][0.3.0] - 2016-06-16
 

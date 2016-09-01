@@ -52,7 +52,7 @@ function calculate(name, params) {
 
   network = networks.getNetwork(name);
   if (!network) {
-    throw new errors.NetworkNotFound(`network '${name}' not found`);
+    throw new errors.NetworkNotFoundError(`network '${name}' not found`);
   }
 
   transaction = network.transactions.find(function(t) {

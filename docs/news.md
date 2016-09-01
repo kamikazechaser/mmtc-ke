@@ -1,3 +1,15 @@
+<h2>Our API is open for developers <small>2016-09-01</h2>
+
+We have opened up our [API][api] for developers. It is intended to
+be used in applications that do **not** wish to re-implement
+calculations on money transactions.
+It is quite minimal and currently in development. We welcome
+contribution to improve it. Head over to our [Github repository][repo].
+
+[api]:/api/
+[repo]:https://github.com/forfuturellc/mmtc-ke
+
+
 <h2>Updated Terms and Conditions <small>2016-06-16</small></h2>
 
 We have updated our Terms and Conditions to reflect our change

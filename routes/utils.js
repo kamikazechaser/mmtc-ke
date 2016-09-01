@@ -18,6 +18,15 @@ exports = module.exports = {
    */
   renderPage,
   /**
+   * Render a markdown page
+   *
+   * @param  {Express.Request} req
+   * @param  {Express.Response} res
+   * @param  {Function} next
+   * @param  {String} filepath
+   */
+  renderMarkdownPage,
+  /**
    * Web Middleware
    *
    * @param {Express.Router} router
@@ -35,6 +44,10 @@ const path = require('path');
 const _ = require('lodash');
 const config = require('config');
 const express = require('express');
+
+
+// own modules
+const engine = require("../engine");
 
 
 function webMiddleware(router, config) {
@@ -58,4 +71,17 @@ function renderPage(req, res, path, ctx) {
 
   ctx.__path = req.path;
   return res.render(path, ctx);
+}
+
+
+function renderMarkdownPage(req, res, next, filepath) {
+  return engine.pages.getHTML(filepath, function(getErr, html) {
+    if (getErr) {
+      return next(getErr);
+    }
+
+    return renderPage(req, res, 'misc/content', {
+      content: html,
+    });
+  });
 }

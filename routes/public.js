@@ -128,30 +128,14 @@ router
 
 
 // News page
-router.get("/news", function(req, res, next) {
+router.get('/news', function(req, res, next) {
   const filepath = path.resolve(__dirname, '../docs/news.md');
-  return renderMarkdownPage(req, res, next, filepath);
+  return utils.renderMarkdownPage(req, res, next, filepath);
 });
 
 
 // Terms and conditions
-router.use('/tcs', function(req, res, next) {
+router.get('/tcs', function(req, res, next) {
   const filepath = path.resolve(__dirname, '../docs/terms-and-conditions.md');
-  return renderMarkdownPage(req, res, next, filepath);
+  return utils.renderMarkdownPage(req, res, next, filepath);
 });
-
-
-/**
- * Render a markdown page
- */
-function renderMarkdownPage(req, res, next, filepath) {
-  return engine.pages.getHTML(filepath, function(getErr, html) {
-    if (getErr) {
-      return next(getErr);
-    }
-
-    return utils.renderPage(req, res, 'misc/content', {
-      content: html,
-    });
-  });
-}
