@@ -1,17 +1,18 @@
 /**
  * The MIT License (MIT)
- * Copyright (c) 2016
+ * Copyright (c) 2016 GochoMugo <mugo@forfuture.co.ke>
+ * Copyright (c) 2016 Forfuture, LLC <we@forfuture.co.ke>
  *
- * Engine
+ * The Engine; where the hard work happens.
  */
 
 
 // own modules
-var clients = require('./clients');
-var errors = require('./errors');
-var math = require('./math');
-var networks = require('./networks');
-var pages = require('./pages');
+const clients = require('./clients');
+const errors = require('./errors');
+const math = require('./math');
+const networks = require('./networks');
+const pages = require('./pages');
 
 
 exports = module.exports = {

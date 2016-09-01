@@ -1,24 +1,38 @@
+/**
+ * The MIT License (MIT)
+ * Copyright (c) 2016 GochoMugo <mugo@forfuture.co.ke>
+ * Copyright (c) 2016 Forfuture, LLC <we@forfuture.co.ke>
+ *
+ * API router.
+ */
+
+
 // built-in modules
-var path = require("path");
+const path = require('path');
 
 
 // npm-installed modules
-var Debug = require("debug");
-var express = require("express");
+const Debug = require('debug');
+const express = require('express');
 
 
 // own modules
-var engine = require("../engine");
+const engine = require('../engine');
 
 
 // module variables
-var debug = Debug("mmtc-ke:routes:api");
-var router = express.Router();
-var logger = engine.clients.getLogger();
+const debug = Debug('mmtc-ke:routes:api');
+const router = express.Router();
+const logger = engine.clients.getLogger();
+
+
+// expose the router
+exports = module.exports = router;
+exports.router = router;
 
 
 // serving data for all networks
-router.get("/networks", function(req, res, next) {
+router.get('/networks', function(req, res, next) {
   return res.json({
     networks: engine.networks.getNetworks(),
   });
@@ -26,11 +40,11 @@ router.get("/networks", function(req, res, next) {
 
 
 // serving data for a network
-router.get("/networks/:network", function(req, res, next) {
-  var network = engine.networks.getNetwork(req.params.network);
+router.get('/networks/:network', function(req, res, next) {
+  const network = engine.networks.getNetwork(req.params.network);
   if (!network) {
-    var networkNotFoundError = new engine.errors.NetworkNotFoundError(`network '${req.params.network}' not found`);
-    networkNotFoundError.status_code = 404;
+    let networkNotFoundError = new engine.errors.NetworkNotFoundError(`network '${req.params.network}' not found`);
+    networkNotFoundError.statusCode = 404;
     return next(networkNotFoundError);
   }
   return res.json(network);
@@ -39,16 +53,11 @@ router.get("/networks/:network", function(req, res, next) {
 
 // API Error handler
 router.use(function(err, req, res, next) {
-  var status_code = err.status_code || 500;
-  if (status_code === 500) {
+  err.statusCode = err.statusCode || 500;
+  if (err.statusCode === 500) {
     logger.error(err);
   }
-  return res.status(status_code).json({
+  return res.status(err.statusCode).json({
     error: err,
   });
 });
-
-
-// expose the router
-exports = module.exports = router;
-exports.router = router;

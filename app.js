@@ -1,27 +1,37 @@
+/**
+ * The MIT License (MIT)
+ * Copyright (c) 2016 GochoMugo <mugo@forfuture.co.ke>
+ * Copyright (c) 2016 Forfuture, LLC <we@forfuture.co.ke>
+ *
+ * Mobile Money Transaction Costs (MMTC).
+ */
+
+
 // built-in modules
-var path = require('path');
+const path = require('path');
 
 
 // npm-installed modules
-var bodyParser = require('body-parser');
-var config = require('config');
-var Debug = require('debug');
-var express = require('express');
-var nunjucks = require('nunjucks');
+const bodyParser = require('body-parser');
+const config = require('config');
+const Debug = require('debug');
+const express = require('express');
+const nunjucks = require('nunjucks');
 
 
 // own modules
-var engine = require('./engine');
-var routes = require('./routes');
-var webConfig = require('./web/config');
-var pkg = require('./package.json');
+const engine = require('./engine');
+const routes = require('./routes');
+const webConfig = require('./web/config');
+const pkg = require('./package.json');
 
 
 // module variables
-var app = express();
-var debug = Debug('mmtc-ke:app');
-var logger = engine.clients.getLogger();
-var nunjucksEnv;
+const app = express();
+const debug = Debug('mmtc-ke:app');
+const logger = engine.clients.getLogger();
+let nunjucksEnv;
+const devmode = app.get("env") === "development";
 
 
 debug('initializing engine');
@@ -32,6 +42,7 @@ debug('configuring nunjucks');
 nunjucksEnv = nunjucks.configure('web', {
     autoescape: true,
     express: app,
+    noCache: devmode ? true : false,
 });
 
 
@@ -58,7 +69,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false  }));
 
 
-debug('mouting middleware for serving static files');
+debug('mounting middleware for serving static files');
 routes.utils.webMiddleware(app, webConfig);
 
 

@@ -1,25 +1,42 @@
+/**
+ * The MIT License (MIT)
+ * Copyright (c) 2016 GochoMugo <mugo@forfuture.co.ke>
+ * Copyright (c) 2016 Forfuture, LLC <we@forfuture.co.ke>
+ *
+ * Router utilities.
+ */
+
+
 exports = module.exports = {
+  /**
+   * Render a page
+   *
+   * @param {Express.Request} req
+   * @param {Express.Response} res
+   * @param {String} path
+   * @param {Object} [ctx]
+   */
   renderPage,
+  /**
+   * Web Middleware
+   *
+   * @param {Express.Router} router
+   * @param {Object} config
+   */
   webMiddleware,
 };
 
 
 // built-in modules
-var path = require('path');
+const path = require('path');
 
 
 // npm-installed modules
-var _ = require('lodash');
-var config = require('config');
-var express = require('express');
+const _ = require('lodash');
+const config = require('config');
+const express = require('express');
 
 
-/**
- * Web Middleware
- *
- * @param {Express.Router} router
- * @param {Object} config
- */
 function webMiddleware(router, config) {
   if (!_.isPlainObject(config)) {
     throw new Error('expected configuration to be object');
@@ -34,14 +51,6 @@ function webMiddleware(router, config) {
 }
 
 
-/**
- * Render a page
- *
- * @param {Express.Request} req
- * @param {Express.Response} res
- * @param {String} path
- * @param {Object} [ctx]
- */
 function renderPage(req, res, path, ctx) {
   if (!_.isPlainObject(ctx)) {
     ctx = {};

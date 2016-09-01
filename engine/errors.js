@@ -1,17 +1,18 @@
 /**
  * The MIT License (MIT)
- * Copyright (c) 2016 Forfuture LLC
+ * Copyright (c) 2016 GochoMugo <mugo@forfuture.co.ke>
+ * Copyright (c) 2016 Forfuture, LLC <we@forfuture.co.ke>
  *
- * Error handling
+ * Custom errors.
  */
 
 
 // npm-installed modules
-var errors = require('common-errors');
+const errors = require('common-errors');
 
 
 // module variables
-var define = errors.helpers.generateClass;
+const define = errors.helpers.generateClass;
 
 
 exports = module.exports = {

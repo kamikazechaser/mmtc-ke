@@ -2,13 +2,13 @@
 
 Before proceeding any further, read the following documents:
 
-1. [CONTRIBUTING.md][contrib]: contributing source code
-1. [CODE\_OF\_CONDUCT.md][coc]: code of conduct
-1. [LICENSE][license]: software license
+1. [contributing source code][contrib]
+1. [code of conduct][coc]
+1. [software license][license]
 
-[contrib]:https://github.com/forfuturellc/mmtc-ke/blob/master/CONTRIBUTING.md
-[coc]:https://github.com/forfuturellc/mmtc-ke/blob/master/CODE_OF_CONDUCT.md
-[license]:https://github.com/forfuturellc/mmtc-ke/blob/master/LICENSE
+[contrib]:https://github.com/forfuturellc/workflow/blob/master/CONTRIBUTING.md
+[coc]:https://github.com/forfuturellc/workflow/blob/master/CODE_OF_CONDUCT.md
+[license]:https://github.com/forfuturellc/mmtc-ke/blob/master/LICENSE.txt
 
 
 ## introduction:

@@ -1,54 +1,61 @@
 /**
  * The MIT License (MIT)
- * Copyright (c) 2016 Forfuture LLC
+ * Copyright (c) 2016 GochoMugo <mugo@forfuture.co.ke>
+ * Copyright (c) 2016 Forfuture, LLC <we@forfuture.co.ke>
  *
  * Handling networks
  */
 
 
 exports = module.exports = {
-  getNetwork: getNetwork,
-  getNetworks: getNetworks,
+  /**
+   * Initialize the Engine. It executes synchronously.
+   */
   init: init,
+  /**
+   * Return the network object.
+   *
+   * @param  {String} name of the network (possibly from `getNetworks()`)
+   * @return {Network}
+   */
+  getNetwork: getNetwork,
+  /**
+   * Return names of all the loaded networks in an array.
+   *
+   * @return {Array}
+   */
+  getNetworks: getNetworks,
 };
 
 
 // built-in modules
-var fs = require('fs');
-var path = require('path');
+const fs = require('fs');
+const path = require('path');
 
 
 // module variables
-var datadir = path.resolve(__dirname, '../data');
-var cache = {
+const datadir = path.resolve(__dirname, '../data');
+const cache = {
   networks: {},
 };
-var isJsonFileRegex = new RegExp('.json$');
+const isJsonFileRegex = new RegExp('.json$');
 
 
-/**
- * Initialize the Engine. It executes synchronously.
- */
 function init() {
   fs.readdirSync(datadir).forEach(function(filename) {
     if (!isJsonFileRegex.test(filename)) return;
 
-    var filepath = path.join(__dirname, '../data', filename);
-    var data = require(filepath);
+    const filepath = path.join(__dirname, '../data', filename);
+    const data = require(filepath);
     cache.networks[data.name] = data;
   });
 }
 
 
-/**
- * Return names of all the loaded networks in an array.
- *
- * @return {Array}
- */
 function getNetworks() {
-  var networks = [];
+  const networks = [];
 
-  for (var networkName in cache.networks) {
+  for (let networkName in cache.networks) {
     networks.push(cache.networks[networkName]);
   }
 
@@ -56,12 +63,6 @@ function getNetworks() {
 }
 
 
-/**
- * Return the network object.
- *
- * @param {String} name of the network (possibly from `getNetworks()`)
- * @return {Network}
- */
 function getNetwork(name) {
   return cache.networks[name];
 }

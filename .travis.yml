@@ -1,8 +1,7 @@
 language: node_js
 node_js:
-- '4.2'
-- '0.11'
-- '0.10'
+- '6'
+- '4'
 before_deploy:
 - mv .openshift/gitignore .gitignore
 deploy:

@@ -1,21 +1,35 @@
+/**
+ * The MIT License (MIT)
+ * Copyright (c) 2016 GochoMugo <mugo@forfuture.co.ke>
+ * Copyright (c) 2016 Forfuture, LLC <we@forfuture.co.ke>
+ *
+ * Router for public pages on the web.
+ */
+
+
 // built-in modules
-var path = require('path');
+const path = require('path');
 
 
 // npm-installed modules
-var _ = require('lodash');
-var Debug = require("debug");
-var express = require("express");
+const _ = require('lodash');
+const Debug = require('debug');
+const express = require('express');
 
 
 // own modules
-var engine = require('../engine');
-var utils = require('./utils');
+const engine = require('../engine');
+const utils = require('./utils');
 
 
 // module variables
-var debug = Debug("mmtc-ke:routes:public");
-var router = express.Router();
+const debug = Debug("mmtc-ke:routes:public");
+const router = express.Router();
+
+
+// expose the router
+exports = module.exports = router;
+exports.router = router;
 
 
 // home page
@@ -58,7 +72,7 @@ router
             });
         }
 
-        var cost;
+        let cost;
 
         try {
             cost = engine.math.calculate(req.params.name, req.body);
@@ -97,7 +111,7 @@ router
         });
     });
     function renderNetworkPage(req, res, ctx) {
-        var network = engine.networks.getNetwork(req.params.name);
+        const network = engine.networks.getNetwork(req.params.name);
 
         if (!network) {
           return utils.renderPage(req, res, 'error', {
@@ -107,7 +121,7 @@ router
 
         return utils.renderPage(req, res, 'networks/index', _.assign(ctx || {}, {
             networks: engine.networks.getNetworks(),
-            network: network,
+            network,
             body: _.isEmpty(req.body) ? null : req.body,
         }));
     }
@@ -115,14 +129,14 @@ router
 
 // News page
 router.get("/news", function(req, res, next) {
-  var filepath = path.resolve(__dirname, '../docs/news.md');
+  const filepath = path.resolve(__dirname, '../docs/news.md');
   return renderMarkdownPage(req, res, next, filepath);
 });
 
 
 // Terms and conditions
 router.use('/tcs', function(req, res, next) {
-  var filepath = path.resolve(__dirname, '../docs/terms-and-conditions.md');
+  const filepath = path.resolve(__dirname, '../docs/terms-and-conditions.md');
   return renderMarkdownPage(req, res, next, filepath);
 });
 
@@ -141,8 +155,3 @@ function renderMarkdownPage(req, res, next, filepath) {
     });
   });
 }
-
-
-// expose the router
-exports = module.exports = router;
-exports.router = router;

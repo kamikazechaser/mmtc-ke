@@ -1,17 +1,26 @@
+/**
+ * The MIT License (MIT)
+ * Copyright (c) 2016 GochoMugo <mugo@forfuture.co.ke>
+ * Copyright (c) 2016 Forfuture, LLC <we@forfuture.co.ke>
+ *
+ * Main router.
+ */
+
+
 // npm-installed modules
-var Debug = require('debug');
-var express = require('express');
+const Debug = require('debug');
+const express = require('express');
 
 
 // own modules
-var api = require('./api');
-var public = require('./public');
-var utils = require('./utils');
+const api = require('./api');
+const public = require('./public');
+const utils = require('./utils');
 
 
 // module variables
-var debug = Debug('mmtc-ke:routes:index');
-var router = express.Router();
+const debug = Debug('mmtc-ke:routes:index');
+const router = express.Router();
 
 
 // exports
