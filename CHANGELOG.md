@@ -14,6 +14,7 @@ Added:
 Changed:
 
 * Mpesa data files updated
+* Add throwable errors from `engine.math.calculate()`: `AmountNotFoundError`, `AmountNotAllowedError`
 
 
 ## [0.4.0][0.4.0] - 2016-09-01
