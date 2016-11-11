@@ -75,7 +75,7 @@ function calculate(name, params) {
 
   let amount, range;
 
-  amount = parseInt(params.amount, 10);
+  amount = Number(params.amount);
   if (amount < 0) {
     throw new errors.InvalidAmountError(`amount '${params.amount}' is not valid`);
   }
@@ -118,6 +118,6 @@ function parseRange(range) {
     } else if (n === '+Infinity') {
       return +Infinity;
     }
-    return parseInt(n, 10);
+    return Number(n);
   }
 }
