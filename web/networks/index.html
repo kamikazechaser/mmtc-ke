@@ -35,7 +35,7 @@
     <div id="notification" class="alert alert-{{ alert_class }} alert-dismissible" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         {% if result.error %}
-          {{ result.message  }}
+        <strong>Error:</strong> {{ result.message | capitalize }}
         {% elif result.success %}
         <p>It will cost you <span class="results-cost"><strong>KES. {{ result.cost }} /=</strong></span></p>
         {% endif %}
