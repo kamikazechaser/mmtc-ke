@@ -99,7 +99,14 @@ router
                     message: 'Amount is not allowed',
                 },
             });
-        }
+        } else if (cost === -2) {
+            return renderNetworkPage(req, res, {
+                result: {
+                    error: true,
+                    message: 'Consult merchant',
+                },
+            });
+        }    
         return renderNetworkPage(req, res, {
             defaults: {
                 amount: req.body.amount,
