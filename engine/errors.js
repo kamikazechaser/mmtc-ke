@@ -21,6 +21,8 @@ exports = module.exports = {
 
   // Calculation Errors
   InvalidAmountError: define('InvalidAmountError'),
+  AmountNotAllowedError: define('AmountNotAllowedError'),
+  AmountNotFoundError: define('AmountNotFoundError'),
   NetworkNotFoundError: define('NetworkNotFoundError'),
   RangeNotFoundError: define('RangeNotFoundError'),
   TransactionClassNotFoundError: define('TransactionClassNotFoundError'),

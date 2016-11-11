@@ -85,21 +85,6 @@ router
             });
         }
 
-        if (cost === null) {
-            return renderNetworkPage(req, res, {
-                result: {
-                    error: true,
-                    message: 'Calculation impossible',
-                },
-            });
-        } else if (cost === -1) {
-            return renderNetworkPage(req, res, {
-                result: {
-                    error: true,
-                    message: 'Amount is not allowed',
-                },
-            });
-        }
         return renderNetworkPage(req, res, {
             defaults: {
                 amount: req.body.amount,

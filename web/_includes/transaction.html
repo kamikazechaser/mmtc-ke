@@ -67,11 +67,12 @@
             {% if amount == "-Infinity" %}0{% elif amount == "+Infinity" %}&infin;+{% else %}{{ amount }}{% endif %}
           {% endmacro %}
 
+          <td>{{ rename_amount(range.low) }} - {{ rename_amount(range.high) }}</td>
           {% if range.amount == -1 %}
-          <td>{{ rename_amount(range.low) }} - {{ rename_amount(range.high) }}</td>
           <td>N/A</td>
+          {% elif range.amount == -2 %}
+          <td>{{ range.message or "Not found!" }}</td>
           {% else %}
-          <td>{{ rename_amount(range.low) }} - {{ rename_amount(range.high) }}</td>
           <td>{{ range.amount }}</td>
           {% endif %}
         </tr>

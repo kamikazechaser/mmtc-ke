@@ -2,7 +2,7 @@
 
 |Aspect|Detail|
 |------|------|
-|Version|0.3|
+|Version|0.4|
 |Written by|GochoMugo <mugo@forfuture.co.ke>|
 
 The data used in the application in its computations is fed through data files
@@ -55,6 +55,7 @@ A single data file can **only** hold one [Network](#type-network) object.
 |name|[Name](#type-name)|Name of the class of the transaction|
 |ranges|\[[Range](#type-range)]|The ranges in the transaction class|
 |amount|[Cost](#type-cost)|Amount charged to the user. *This should be provided __only__ if parent `Transaction` has `amount_input` set to `false`.*|
+|message|String|*Optional.* Accompanying message for any raised errors, due to `amount`|
 
 
 <a name="type-range"></a>
@@ -70,10 +71,16 @@ A single data file can **only** hold one [Network](#type-network) object.
 ### Cost
 <a name="type-cost"></a>
 
-This type is based on the native `Number` type in JSON with these few additions:
+This type is based on the native `Number` type in JSON with these few
+additions:
 
 * `"-Infinity"`: implies `-Infinity`
 * `"+Infinity"`: implies `+Infinity`
+* `-1`: raises `AmountNotAllowedError`, inferring that the provided
+  amount is **forbidden** for this transaction
+* `-2`: raises `AmountNotFoundError`, inferring that the amount for
+  this transaction can **not** be determined using our data (depends on
+  external factors, e.g. merchant reputation)
 * **no** fractional part
 
 Therefore, the cost is accurate to **1 KES**.

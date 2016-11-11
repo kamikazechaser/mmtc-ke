@@ -2,7 +2,7 @@
   "name": "mpesa",
   "meta": {
     "spec": "0.2",
-    "date_updated": "2016-06-16",
+    "date_updated": "2016-11-11",
     "url": "http://www.safaricom.co.ke/personal/m-pesa"
   },
   "transactions": [
@@ -10,11 +10,10 @@
       "name": "transfer",
       "classes": [
         {
-          "name": "registered users",
+          "name": "registered user",
           "ranges": [
             { "low": "-Infinity", "high": 9, "amount": -1 },
-            { "low": 10,    "high": 49,    "amount": 1 },
-            { "low": 50,    "high": 100,   "amount": 3 },
+            { "low": 10,    "high": 100,   "amount": 0 },
             { "low": 101,   "high": 500,   "amount": 11 },
             { "low": 501,   "high": 1000,  "amount": 15 },
             { "low": 1001,  "high": 1500,  "amount": 25 },
@@ -30,7 +29,7 @@
           ]
         },
         {
-          "name": "unregistered users",
+          "name": "unregistered user",
           "ranges": [
             { "low": "-Infinity", "high": 100, "amount": -1 },
             { "low": 101,   "high": 2500,  "amount": 66 },
@@ -42,6 +41,15 @@
             { "low": 15001, "high": 20000, "amount": 237 },
             { "low": 20001, "high": 35000, "amount": 275 },
             { "low": 35001, "high": "+Infinity", "amount": -1 }
+          ]
+        },
+        {
+          "name": "lipa na mpesa",
+          "ranges": [
+            { "low": "-Infinity", "high": 9, "amount": -1 },
+            { "low": 10,    "high": 100,   "amount": 0 },
+            { "low": 101,   "high": 70000,  "amount": -2, "message": "consult merchant" },
+            { "low": 70001, "high": "+Infinity", "amount": -1 }
           ]
         }
       ]

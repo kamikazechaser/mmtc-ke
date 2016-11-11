@@ -88,6 +88,13 @@ function calculate(name, params) {
     throw new errors.RangeNotFoundError(`range for the amount '${params.amount}' not found`);
   }
 
+  switch (range.amount) {
+  case -1:
+    throw new errors.AmountNotAllowedError(`amount is not allowed`);
+  case -2:
+    throw new errors.AmountNotFoundError(range.message || `amount not found`);
+  }
+
   return range.amount;
 }
 
