@@ -26,7 +26,7 @@
             { "low": 501,   "high": 1000,    "amount": 44 },
             { "low": 1001,   "high": 1500,    "amount": 49.5 },
             { "low": 1501,   "high": 35000,   "amount": 60.5 },
-            { "low": 70001,  "high": "+Infinity", "amount": -1 }
+            { "low": 35001,  "high": "+Infinity", "amount": -1 }
           ]
         }
       ]
