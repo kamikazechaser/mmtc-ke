@@ -5,6 +5,12 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][Unreleased]
 
+Added:
+
+* Support transaction classes whose amount can **not** be determined using
+  our data. Throws error `AmountNotFoundError`. An optional error message
+  can be provided in the data.
+
 Changed:
 
 * Mpesa data files updated
