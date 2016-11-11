@@ -10,7 +10,7 @@
       "name": "transfer",
       "classes": [
         {
-          "name": "registered users",
+          "name": "registered user",
           "ranges": [
             { "low": "-Infinity", "high": 9, "amount": -1 },
             { "low": 10,    "high": 100,   "amount": 0 },
@@ -29,7 +29,7 @@
           ]
         },
         {
-          "name": "unregistered users",
+          "name": "unregistered user",
           "ranges": [
             { "low": "-Infinity", "high": 100, "amount": -1 },
             { "low": 101,   "high": 2500,  "amount": 66 },
@@ -41,6 +41,15 @@
             { "low": 15001, "high": 20000, "amount": 237 },
             { "low": 20001, "high": 35000, "amount": 275 },
             { "low": 35001, "high": "+Infinity", "amount": -1 }
+          ]
+        },
+        {
+          "name": "lipa na mpesa",
+          "ranges": [
+            { "low": "-Infinity", "high": 9, "amount": -1 },
+            { "low": 10,    "high": 100,   "amount": 0 },
+            { "low": 101,   "high": 70000,  "amount": -2, "message": "consult merchant" },
+            { "low": 70001, "high": "+Infinity", "amount": -1 }
           ]
         }
       ]
@@ -66,15 +75,6 @@
             { "low": 70001, "high": "+Infinity", "amount": -1 }
           ]
         },
-        {
-          "name": "lipa na mpesa",
-          "ranges": [
-            { "low": "-Infinity", "high": 9, "amount": -1 },
-            { "low": 10,    "high": 100,   "amount": 0 },
-            { "low": 101,   "high": 70000,  "amount": -2 },
-            { "low": 70001, "high": "+Infinity", "amount": -1 }
-          ]
-        },          
         {
           "name": "atm",
           "ranges": [

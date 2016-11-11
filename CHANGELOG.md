@@ -5,6 +5,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][Unreleased]
 
+Changed:
+
+* Mpesa data files updated
 
 
 ## [0.4.0][0.4.0] - 2016-09-01
