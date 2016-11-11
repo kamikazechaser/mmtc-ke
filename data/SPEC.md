@@ -2,7 +2,7 @@
 
 |Aspect|Detail|
 |------|------|
-|Version|0.4|
+|Version|0.5|
 |Written by|GochoMugo <mugo@forfuture.co.ke>|
 
 The data used in the application in its computations is fed through data files
@@ -81,7 +81,6 @@ additions:
 * `-2`: raises `AmountNotFoundError`, inferring that the amount for
   this transaction can **not** be determined using our data (depends on
   external factors, e.g. merchant reputation)
-* **no** fractional part
 
 Therefore, the cost is accurate to **1 KES**.
 

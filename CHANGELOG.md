@@ -6,6 +6,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased][Unreleased]
 
 
+Added:
+
+* Add support for **fractional parts** in the `amount`.
 
 
 ## [0.5.0][0.5.0] - 2016-11-11
