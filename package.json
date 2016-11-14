@@ -11,16 +11,16 @@
   },
   "dependencies": {
     "body-parser": "^1.15.2",
-    "bower": "^1.7.7",
+    "bower": "^1.8.0",
     "common-errors": "^1.0.0",
-    "config": "^1.19.0",
-    "debug": "^2.2.0",
+    "config": "^1.24.0",
+    "debug": "^2.3.2",
     "express": "^4.14.0",
-    "forever": "^0.15.1",
-    "lodash": "^4.15.0",
-    "nunjucks": "^2.3.0",
-    "showdown": "^1.4.3",
-    "winston": "^2.2.0"
+    "forever": "^0.15.3",
+    "lodash": "^4.17.0",
+    "nunjucks": "^3.0.0",
+    "showdown": "^1.5.0",
+    "winston": "^2.3.0"
   },
   "repository": {
     "type": "git",
@@ -40,6 +40,6 @@
     "grunt-eslint": "^19.0.0",
     "grunt-sass": "^1.2.1",
     "load-grunt-tasks": "^3.5.2",
-    "nodemon": "^1.10.2"
+    "nodemon": "^1.11.0"
   }
 }
