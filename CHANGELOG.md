@@ -10,6 +10,10 @@ Added:
 
 * Add support for **fractional parts** in the `amount`.
 
+Changed:
+
+* Drop official support for Node v4.x series
+
 
 ## [0.5.0][0.5.0] - 2016-11-11
 

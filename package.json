@@ -32,7 +32,7 @@
     "url": "http://www.gmugo.in"
   },
   "engines": {
-    "node": "4.2.x"
+    "node": ">=6"
   },
   "devDependencies": {
     "grunt": "^1.0.1",
