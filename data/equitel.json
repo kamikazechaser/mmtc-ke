@@ -1,0 +1,67 @@
+{
+  "name": "equitel",
+  "meta": {
+    "spec": "0.5",
+    "date_updated": "2016-11-11",
+    "url": "http://www.equitel.com/my-money/rates"
+  },
+  "transactions": [
+    {
+      "name": "transfer",
+      "classes": [
+        {
+          "name": "equitel or orange money",
+          "ranges": [
+            { "low": "-Infinity", "high": 49, "amount": -1 },
+            { "low": 50,     "high": 35000,     "amount": 0 },
+            { "low": 35001,  "high": "+Infinity", "amount": -1 }
+          ]
+        },
+        {
+          "name": "mpesa or airtel money",
+          "ranges": [
+            { "low": "-Infinity", "high": 49, "amount": -1 },
+            { "low": 50,     "high": 100,     "amount": 34.1 },
+            { "low": 101,    "high": 500,    "amount": 38.5 },
+            { "low": 501,   "high": 1000,    "amount": 44 },
+            { "low": 1001,   "high": 1500,    "amount": 49.5 },
+            { "low": 1501,   "high": 35000,   "amount": 60.5 },
+            { "low": 35001,  "high": "+Infinity", "amount": -1 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "others",
+      "amount_input": false,
+      "classes": [
+        {
+          "name": "deposits",
+          "amount": 0
+        },
+        {
+          "name": "transaction reports",
+          "amount": 0
+        },
+        {
+          "name": "airtime",
+          "amount": 0
+        },
+        {
+          "name": "balance enquiry",
+          "amount": 0
+        },
+        {
+          "name": "pay bills",
+          "amount": 0
+        },
+        {
+          "name": "atm withdrawal",
+          "amount": 33
+        }
+      ]
+    }
+  ],
+  "ussd_codes": [
+  ]
+}

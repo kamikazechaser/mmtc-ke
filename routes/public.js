@@ -13,7 +13,6 @@ const path = require('path');
 
 // npm-installed modules
 const _ = require('lodash');
-const Debug = require('debug');
 const express = require('express');
 
 
@@ -23,7 +22,6 @@ const utils = require('./utils');
 
 
 // module variables
-const debug = Debug("mmtc-ke:routes:public");
 const router = express.Router();
 
 
@@ -33,83 +31,83 @@ exports.router = router;
 
 
 // home page
-router.get("/", function(req, res) {
-    return utils.renderPage(req, res, 'index', {
-        networks: engine.networks.getNetworks(),
-    });
+router.get('/', function(req, res) {
+  return utils.renderPage(req, res, 'index', {
+    networks: engine.networks.getNetworks(),
+  });
 });
 
 
 // network page
 router
-    .route('/n/:name')
-    .get(function(req, res) {
-        return renderNetworkPage(req, res);
-    })
-    .post(function(req, res) {
-        if (!_.isString(req.body.amount)) {
-            return renderNetworkPage(req, res, {
-                result: {
-                    error: true,
-                    message: 'invalid amount',
-                },
-            });
-        }
-        if (!_.isString(req.body.transactionType)) {
-            return renderNetworkPage(req, res, {
-                result: {
-                    error: true,
-                    message: 'invalid transaction type',
-                },
-            });
-        }
-        if (!_.isString(req.body.transactor)) {
-            return renderNetworkPage(req, res, {
-                result: {
-                    error: true,
-                    message: 'invalid transactor',
-                },
-            });
-        }
-
-        let cost;
-
-        try {
-            cost = engine.math.calculate(req.params.name, req.body);
-        } catch(err) {
-            return renderNetworkPage(req, res, {
-                result: {
-                    error: true,
-                    message: err.message,
-                },
-            });
-        }
-
-        return renderNetworkPage(req, res, {
-            defaults: {
-                amount: req.body.amount,
-            },
-            result: {
-                success: true,
-                cost,
-            },
-        });
-    });
-    function renderNetworkPage(req, res, ctx) {
-        const network = engine.networks.getNetwork(req.params.name);
-
-        if (!network) {
-          return utils.renderPage(req, res, 'error', {
-              error: new engine.errors.NetworkNotFoundError(`network '${req.params.name}' not found`),
-          });
-        }
-
-        return utils.renderPage(req, res, 'networks/index', _.assign(ctx || {}, {
-            networks: engine.networks.getNetworks(),
-            network,
-            body: _.isEmpty(req.body) ? null : req.body,
-        }));
+  .route('/n/:name')
+  .get(function(req, res) {
+    return renderNetworkPage(req, res);
+  })
+  .post(function(req, res) {
+    if (!_.isString(req.body.amount)) {
+      return renderNetworkPage(req, res, {
+        result: {
+          error: true,
+          message: 'invalid amount',
+        },
+      });
     }
+    if (!_.isString(req.body.transactionType)) {
+      return renderNetworkPage(req, res, {
+        result: {
+          error: true,
+          message: 'invalid transaction type',
+        },
+      });
+    }
+    if (!_.isString(req.body.transactor)) {
+      return renderNetworkPage(req, res, {
+        result: {
+          error: true,
+          message: 'invalid transactor',
+        },
+      });
+    }
+
+    let cost;
+
+    try {
+      cost = engine.math.calculate(req.params.name, req.body);
+    } catch(err) {
+      return renderNetworkPage(req, res, {
+        result: {
+          error: true,
+          message: err.message,
+        },
+      });
+    }
+
+    return renderNetworkPage(req, res, {
+      defaults: {
+        amount: req.body.amount,
+      },
+      result: {
+        success: true,
+        cost,
+      },
+    });
+  });
+function renderNetworkPage(req, res, ctx) {
+  const network = engine.networks.getNetwork(req.params.name);
+
+  if (!network) {
+    return utils.renderPage(req, res, 'error', {
+      error: new engine.errors.NetworkNotFoundError(`network '${req.params.name}' not found`),
+    });
+  }
+
+  return utils.renderPage(req, res, 'networks/index', _.assign(ctx || {}, {
+    networks: engine.networks.getNetworks(),
+    network,
+    body: _.isEmpty(req.body) ? null : req.body,
+  }));
+}
 
 
 // News page

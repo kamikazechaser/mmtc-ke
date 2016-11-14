@@ -1,7 +1,7 @@
 {
   "name": "mpesa",
   "meta": {
-    "spec": "0.2",
+    "spec": "0.4",
     "date_updated": "2016-11-11",
     "url": "http://www.safaricom.co.ke/personal/m-pesa"
   },

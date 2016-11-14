@@ -23,6 +23,10 @@ exports = module.exports = {
    *  transaction was not found
    * @throws RangeNotFoundError if the amount was not found in any range
    * @throws InvalidAmountError if the amount entered was invalid
+   * @throws AmountNotAllowedError if the amount is not allowed for the
+   *  transaction
+   * @throws AmountNotFoundError if the amount can not be determined using
+   *  the data available to the engine
    */
   calculate: calculate,
   /**
@@ -75,7 +79,7 @@ function calculate(name, params) {
 
   let amount, range;
 
-  amount = parseInt(params.amount, 10);
+  amount = Number(params.amount);
   if (amount < 0) {
     throw new errors.InvalidAmountError(`amount '${params.amount}' is not valid`);
   }
@@ -90,9 +94,9 @@ function calculate(name, params) {
 
   switch (range.amount) {
   case -1:
-    throw new errors.AmountNotAllowedError(`amount is not allowed`);
+    throw new errors.AmountNotAllowedError('amount is not allowed');
   case -2:
-    throw new errors.AmountNotFoundError(range.message || `amount not found`);
+    throw new errors.AmountNotFoundError(range.message || 'amount not found');
   }
 
   return range.amount;
@@ -118,6 +122,6 @@ function parseRange(range) {
     } else if (n === '+Infinity') {
       return +Infinity;
     }
-    return parseInt(n, 10);
+    return Number(n);
   }
 }

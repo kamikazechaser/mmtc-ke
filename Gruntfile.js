@@ -5,6 +5,16 @@ exports = module.exports = (grunt) => {
   loadGruntTasks(grunt);
 
   grunt.initConfig({
+    eslint: {
+      src: [
+        'app.js',
+        'config/**/*.js',
+        'engine/**/*.js',
+        'Gruntfile.js',
+        'routes/**/*.js',
+        'web/js/*.js',
+      ],
+    },
     sass: {
       dist: {
         files: [{
@@ -18,5 +28,7 @@ exports = module.exports = (grunt) => {
     },
   });
 
-  grunt.registerTask("build", ["sass"]);
+  grunt.registerTask('build', ['sass']);
+  grunt.registerTask('lint', ['eslint']);
+  grunt.registerTask('test', ['lint']);
 };

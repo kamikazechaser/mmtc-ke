@@ -8,6 +8,17 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 
 
+## [0.6.0][0.6.0] - 2016-11-14
+
+Added:
+
+* Add support for **fractional parts** in the `amount`.
+
+Changed:
+
+* Drop official support for Node v4.x series
+
+
 ## [0.5.0][0.5.0] - 2016-11-11
 
 Added:
@@ -74,10 +85,11 @@ Added:
 This is the very first version.
 
 
-[Unreleased]: https://github.com/forfuturellc/mmtc-ke/compare/v0.5.0...HEAD
 [0.0.0]:https://github.com/forfuturellc/mmtc-ke/releases/tag/v0.0.0
 [0.1.0]:https://github.com/forfuturellc/mmtc-ke/releases/tag/v0.1.0
 [0.2.0]:https://github.com/forfuturellc/mmtc-ke/releases/tag/v0.2.0
 [0.3.0]:https://github.com/forfuturellc/mmtc-ke/releases/tag/v0.3.0
 [0.4.0]:https://github.com/forfuturellc/mmtc-ke/releases/tag/v0.4.0
 [0.5.0]:https://github.com/forfuturellc/mmtc-ke/releases/tag/v0.5.0
+[0.6.0]:https://github.com/forfuturellc/mmtc-ke/releases/tag/v0.6.0
+[Unreleased]: https://github.com/forfuturellc/mmtc-ke/compare/v0.6.0...HEAD

@@ -42,12 +42,11 @@ const path = require('path');
 
 // npm-installed modules
 const _ = require('lodash');
-const config = require('config');
 const express = require('express');
 
 
 // own modules
-const engine = require("../engine");
+const engine = require('../engine');
 
 
 function webMiddleware(router, config) {
