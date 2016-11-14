@@ -7,7 +7,7 @@
     "postinstall": "HOME=${BOWER_HOME:-${HOME}} bower install",
     "start": "forever app.js",
     "start-dev": "DEBUG=mmtc-ke:* nodemon app.js",
-    "test": "echo no tests!!!"
+    "test": "grunt test"
   },
   "dependencies": {
     "body-parser": "^1.15.2",
@@ -37,6 +37,7 @@
   "devDependencies": {
     "grunt": "^1.0.1",
     "grunt-cli": "^1.2.0",
+    "grunt-eslint": "^19.0.0",
     "grunt-sass": "^1.2.1",
     "load-grunt-tasks": "^3.5.2",
     "nodemon": "^1.10.2"
