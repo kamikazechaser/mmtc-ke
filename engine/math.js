@@ -23,6 +23,10 @@ exports = module.exports = {
    *  transaction was not found
    * @throws RangeNotFoundError if the amount was not found in any range
    * @throws InvalidAmountError if the amount entered was invalid
+   * @throws AmountNotAllowedError if the amount is not allowed for the
+   *  transaction
+   * @throws AmountNotFoundError if the amount can not be determined using
+   *  the data available to the engine
    */
   calculate: calculate,
   /**
