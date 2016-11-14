@@ -1,5 +1,0 @@
-# will install with 'npm install'
-node_modules/
-
-# will install after 'npm install'
-web/vendor/
