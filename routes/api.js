@@ -13,7 +13,6 @@ const path = require('path');
 
 // npm-installed modules
 const _ = require('lodash');
-const Debug = require('debug');
 const express = require('express');
 
 
@@ -23,7 +22,6 @@ const utils = require('./utils');
 
 
 // module variables
-const debug = Debug('mmtc-ke:routes:api');
 const router = express.Router();
 const logger = engine.clients.getLogger();
 
@@ -41,7 +39,7 @@ router.get('/', function(req, res, next) {
 
 
 // serving data for all networks
-router.get('/networks', function(req, res, next) {
+router.get('/networks', function(req, res) {
   return res.json({
     networks: engine.networks.getNetworks(),
   });
@@ -93,7 +91,7 @@ router.use(function(req, res, next) {
 
 
 // API Error handler
-router.use(function(error, req, res, next) {
+router.use(function(error, req, res, next) { // eslint-disable-line no-unused-vars
   error.statusCode = error.statusCode || 500;
   if (error.statusCode >= 500) {
     logger.error(error);

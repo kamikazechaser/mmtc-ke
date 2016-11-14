@@ -8,7 +8,7 @@
 
 
 $(document).ready(function() {
-  "use strict";
+  'use strict';
 
   var $select = $('.select-class');
 
@@ -16,15 +16,15 @@ $(document).ready(function() {
     return tableActivate(this);
   });
 
-  $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+  $('a[data-toggle="tab"]').on('shown.bs.tab', function() {
     var selects = $(this).find('.select-class');
     if (selects.length === 0) return;
     return tableActivate(selects[0]);
   });
 
   function tableActivate(select) {
-      var $option = $($(select).find('option:selected')[0]);
-      $('.tab-pane.active .table-ranges.active').removeClass('active');
-      $($option.data('table')).addClass('active');
+    var $option = $($(select).find('option:selected')[0]);
+    $('.tab-pane.active .table-ranges.active').removeClass('active');
+    $($option.data('table')).addClass('active');
   }
 });

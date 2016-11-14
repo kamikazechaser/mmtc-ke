@@ -28,7 +28,7 @@ exports = module.exports = (grunt) => {
     },
   });
 
-  grunt.registerTask("build", ["sass"]);
+  grunt.registerTask('build', ['sass']);
   grunt.registerTask('lint', ['eslint']);
   grunt.registerTask('test', ['lint']);
 };

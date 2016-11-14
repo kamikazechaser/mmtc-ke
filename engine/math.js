@@ -94,9 +94,9 @@ function calculate(name, params) {
 
   switch (range.amount) {
   case -1:
-    throw new errors.AmountNotAllowedError(`amount is not allowed`);
+    throw new errors.AmountNotAllowedError('amount is not allowed');
   case -2:
-    throw new errors.AmountNotFoundError(range.message || `amount not found`);
+    throw new errors.AmountNotFoundError(range.message || 'amount not found');
   }
 
   return range.amount;

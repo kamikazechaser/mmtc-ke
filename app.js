@@ -31,7 +31,7 @@ const app = express();
 const debug = Debug('mmtc-ke:app');
 const logger = engine.clients.getLogger();
 let nunjucksEnv;
-const devmode = app.get("env") === "development";
+const devmode = app.get('env') === 'development';
 
 
 debug('initializing engine');
@@ -40,16 +40,16 @@ engine.init();
 
 debug('configuring nunjucks');
 nunjucksEnv = nunjucks.configure('web', {
-    autoescape: true,
-    express: app,
-    noCache: devmode ? true : false,
+  autoescape: true,
+  express: app,
+  noCache: devmode ? true : false,
 });
 
 
-debug("adding global variables for nunjucks templates");
-nunjucksEnv.addGlobal("pkg", pkg);
-nunjucksEnv.addGlobal("site", config.get("site"));
-nunjucksEnv.addGlobal("env", process.env);
+debug('adding global variables for nunjucks templates');
+nunjucksEnv.addGlobal('pkg', pkg);
+nunjucksEnv.addGlobal('site', config.get('site'));
+nunjucksEnv.addGlobal('env', process.env);
 
 
 debug('setting up views');
@@ -61,12 +61,12 @@ app.set('view engine', 'html');
 
 
 debug('disabling Express view cache');
-app.set("view cache", false);
+app.set('view cache', false);
 
 
 debug('mounting middleware for parsing request body');
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false  }));
+app.use(bodyParser.urlencoded({ extended: false }));
 
 
 debug('mounting middleware for serving static files');
@@ -78,24 +78,24 @@ app.use(routes);
 
 
 debug('mounting catch-all handler');
-app.use(function(req, res, next) {
-    return routes.utils.renderPage(req, res, 'error', {
-      error: new engine.errors.PageNotFoundError(`page '${req.path}' not found`),
-    });
+app.use(function(req, res) {
+  return routes.utils.renderPage(req, res, 'error', {
+    error: new engine.errors.PageNotFoundError(`page '${req.path}' not found`),
+  });
 });
 
 
 debug('mounting middleware for error handling');
-app.use(function(err, req, res, next) {
-    logger.error(err);
-    return routes.utils.renderPage(req, res, 'error', {
-        error: err,
-    });
+app.use(function(err, req, res, next) { // eslint-disable-line no-unused-vars
+  logger.error(err);
+  return routes.utils.renderPage(req, res, 'error', {
+    error: err,
+  });
 });
 
 
 debug('starting server');
 app.listen(config.get('server.port'), config.get('server.ip'), function() {
-    logger.info('server listening');
-    debug('server started at http://%s:%s', config.get('server.ip'), config.get('server.port'));
+  logger.info('server listening');
+  debug('server started at http://%s:%s', config.get('server.ip'), config.get('server.port'));
 });
