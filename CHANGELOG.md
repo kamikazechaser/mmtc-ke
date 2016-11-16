@@ -5,6 +5,11 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][Unreleased]
 
+
+
+
+## [0.7.0][0.7.0] - 2016-11-16
+
 Changed:
 
 * `/api/networks/:network` returns content of data file under `network` key
@@ -94,4 +99,5 @@ This is the very first version.
 [0.4.0]:https://github.com/forfuturellc/mmtc-ke/releases/tag/v0.4.0
 [0.5.0]:https://github.com/forfuturellc/mmtc-ke/releases/tag/v0.5.0
 [0.6.0]:https://github.com/forfuturellc/mmtc-ke/releases/tag/v0.6.0
-[Unreleased]: https://github.com/forfuturellc/mmtc-ke/compare/v0.6.0...HEAD
+[0.7.0]:https://github.com/forfuturellc/mmtc-ke/releases/tag/v0.7.0
+[Unreleased]: https://github.com/forfuturellc/mmtc-ke/compare/v0.7.0...HEAD
