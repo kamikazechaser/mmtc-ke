@@ -77,6 +77,18 @@ GET /networks/:network
 Retrieve data for `network`. This basically returns the content of
 the data file for `network`.
 
+Example partial response:
+
+```http
+200 OK
+```
+
+```json
+{
+  "network": { /* CONTENT of the data file */ }
+}
+```
+
 
 ---
 <a href="#post-cost" name="post-cost"># <i class="fa fa-file-text"></i></a>

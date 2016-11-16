@@ -54,7 +54,7 @@ router.get('/networks/:network', function(req, res, next) {
     networkNotFoundError.statusCode = 404;
     return next(networkNotFoundError);
   }
-  return res.json(network);
+  return res.json({ network });
 });
 
 

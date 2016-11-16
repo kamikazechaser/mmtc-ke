@@ -5,7 +5,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][Unreleased]
 
+Changed:
 
+* `/api/networks/:network` returns content of data file under `network` key
 
 
 ## [0.6.0][0.6.0] - 2016-11-14
