@@ -17,6 +17,9 @@ and `https://mmtcke-forfutureco.rhcloud.com/api`
 
 API Characteristics:
 
+  * <u>**Beta**: we are working on this API. Please watch the
+    [Github repository][repo] for updates. Some of these updates may break
+    the API, until we declare the API **stable**</u>
   * **JSON**: data back-and-forth is formatted in JSON
   * **Status codes**: responses are sent back with sensible status codes
   * **Unauthenticated**: no authentication token is required, currently
@@ -120,3 +123,4 @@ Example response:
 
 
 [data-files]:https://github.com/forfuturellc/mmtc-ke/tree/master/data
+[repo]:https://github.com/forfuturellc/mmtc-ke
