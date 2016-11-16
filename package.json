@@ -1,13 +1,14 @@
 {
   "name": "mmtc-ke",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "private": true,
   "scripts": {
     "build": "grunt build",
     "postinstall": "HOME=${BOWER_HOME:-${HOME}} bower install",
     "start": "forever app.js",
     "start-dev": "DEBUG=mmtc-ke:* nodemon app.js",
-    "test": "grunt test"
+    "test": "grunt test",
+    "test-coverage": "istanbul cover _mocha --report lcovonly -- -R spec test/test.*.js"
   },
   "dependencies": {
     "body-parser": "^1.15.2",
@@ -35,11 +36,17 @@
     "node": ">=6"
   },
   "devDependencies": {
+    "coveralls": "^2.11.15",
+    "elbow": "^1.0.0",
     "grunt": "^1.0.1",
     "grunt-cli": "^1.2.0",
     "grunt-eslint": "^19.0.0",
+    "grunt-mocha-test": "^0.13.2",
     "grunt-sass": "^1.2.1",
+    "istanbul": "^0.4.5",
     "load-grunt-tasks": "^3.5.2",
+    "mocha": "^3.1.2",
+    "mocha-lcov-reporter": "^1.2.0",
     "nodemon": "^1.11.0"
   }
 }

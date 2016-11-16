@@ -82,8 +82,6 @@ additions:
   this transaction can **not** be determined using our data (depends on
   external factors, e.g. merchant reputation)
 
-Therefore, the cost is accurate to **1 KES**.
-
 
 <a name="type-ussdcode"></a>
 ### USSDCode

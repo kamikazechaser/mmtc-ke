@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-# this starts the logentries agent
-${OPENSHIFT_DATA_DIR}/start-le

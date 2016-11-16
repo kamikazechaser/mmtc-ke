@@ -7,6 +7,11 @@
  */
 
 
+exports = module.exports = {
+  run,
+};
+
+
 // built-in modules
 const path = require('path');
 
@@ -94,8 +99,25 @@ app.use(function(err, req, res, next) { // eslint-disable-line no-unused-vars
 });
 
 
-debug('starting server');
-app.listen(config.get('server.port'), config.get('server.ip'), function() {
-  logger.info('server listening');
-  debug('server started at http://%s:%s', config.get('server.ip'), config.get('server.port'));
-});
+function run(options, done) {
+  options = options || {};
+  if (!options.host) {
+    options.host = config.get('server.ip');
+  }
+  if (!options.port) {
+    options.port = config.get('server.port');
+  }
+
+  debug('starting server');
+  app.listen(options.port, options.host, function() {
+    logger.info('server listening');
+    debug('server started at http://%s:%s', options.host, options.port);
+    if (done) return done();
+  });
+}
+
+
+if (require.main === module) {
+  debug('running as script');
+  run();
+}
