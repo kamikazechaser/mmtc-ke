@@ -6,7 +6,7 @@
 
 [![Supported Node.js Versions](https://img.shields.io/badge/node->=6-green.svg)](https://github.com/forfuturellc/mmtc-ke)
  [![Build Status](https://travis-ci.org/forfuturellc/mmtc-ke.svg?branch=master)](https://travis-ci.org/forfuturellc/mmtc-ke)
- <!--[![Coverage Status](https://coveralls.io/repos/github/forfuturellc/mmtc-ke/badge.svg?branch=master)](https://coveralls.io/github/forfuturellc/mmtc-ke?branch=master)-->
+ [![Coverage Status](https://coveralls.io/repos/github/forfuturellc/mmtc-ke/badge.svg?branch=master)](https://coveralls.io/github/forfuturellc/mmtc-ke?branch=master)
  [![Dependency Status](https://gemnasium.com/forfuturellc/mmtc-ke.svg)](https://gemnasium.com/forfuturellc/mmtc-ke)
 
 
