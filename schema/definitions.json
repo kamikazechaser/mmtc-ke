@@ -1,0 +1,137 @@
+
+{
+  "$schema": "http://json-schema.org/schema#",
+
+  "network": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "$ref": "#/name"
+      },
+      "meta": {
+        "$ref": "#/metadata"
+      },
+      "transactions": {
+        "type": "array",
+        "items": {
+          "$ref": "#/transaction"
+        }
+      },
+      "ussd_codes": {
+        "type": "array",
+        "items": {
+          "$ref": "#/ussd-code"
+        }
+      }
+    }
+  },
+
+  "metadata": {
+    "type": "object",
+    "properties": {
+      "spec": {
+        "type": "string"
+      },
+      "date_updated": {
+        "$ref": "#/date"
+      },
+      "url": {
+        "type": "string"
+      }
+    }
+  },
+
+  "transaction": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "$ref": "#/name"
+      },
+      "classes": {
+        "type": "array",
+        "items": {
+          "$ref": "#/class"
+        }
+      },
+      "amount_input": {
+        "type": "boolean"
+      }
+    }
+  },
+
+  "class": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "$ref": "#/name"
+      },
+      "ranges": {
+        "type": "array",
+        "items": {
+          "$ref": "#/range"
+        }
+      },
+      "amount": {
+        "$ref": "#/cost"
+      },
+      "message": {
+        "type": "string"
+      }
+    }
+  },
+
+  "range": {
+    "type": "object",
+    "properties": {
+      "low": {
+        "$ref": "#/cost"
+      },
+      "high": {
+        "$ref": "#/cost"
+      },
+      "amount": {
+        "$ref": "#/cost"
+      }
+    }
+  },
+
+  "cost": {
+    "type": ["number", "string"]
+  },
+
+  "ussd-code": {
+    "type": "object",
+    "properties": {
+      "code": {
+        "type": "string"
+      },
+      "description": {
+        "type": "string"
+      }
+    }
+  },
+
+  "name": {
+    "type": "string"
+  },
+
+  "date": {
+    "type": "string"
+  },
+
+  "error": {
+    "type": "object",
+    "properties": {
+      "message": {
+        "type": "string"
+      },
+      "name": {
+        "type": "string"
+      },
+      "statusCode": {
+        "type": "integer"
+      }
+    },
+    "required": ["message", "name", "statusCode"]
+  }
+}

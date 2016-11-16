@@ -13,6 +13,12 @@ exports = module.exports = (grunt) => {
         'Gruntfile.js',
         'routes/**/*.js',
         'web/js/*.js',
+        'test/**/*.js',
+      ],
+    },
+    mochaTest: {
+      test: [
+        'test/test.*.js',
       ],
     },
     sass: {
@@ -30,5 +36,5 @@ exports = module.exports = (grunt) => {
 
   grunt.registerTask('build', ['sass']);
   grunt.registerTask('lint', ['eslint']);
-  grunt.registerTask('test', ['lint']);
+  grunt.registerTask('test', ['lint', 'mochaTest']);
 };

@@ -9,3 +9,6 @@ web/css/
 
 # vendor files
 web/vendor/
+
+# coverage reports
+coverage/
