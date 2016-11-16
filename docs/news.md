@@ -1,3 +1,15 @@
+<h2>API Change <small>2016-11-16</small></h2>
+
+There has been change in our API at
+[endpoint `/networks/:network`][endpoint]. This change breaks the
+API. Update your software to reflect this.
+
+Please note that we are <strong>not</strong> going through the process of
+deprecation. The API is still in <strong>beta</strong>.
+
+[endpoint]:http://mmtc.forfuture.co.ke/api/#get-networks-network
+
+
 <h2>Updated Mpesa data <small>2016-11-11</small></h2>
 
 The [recent change in M-pesa tariffs][change-in-tariffs] has necessitated
