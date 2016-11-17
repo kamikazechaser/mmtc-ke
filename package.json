@@ -11,6 +11,7 @@
     "test-coverage": "istanbul cover _mocha --report lcovonly -- -R spec test/test.*.js"
   },
   "dependencies": {
+    "ajv": "^4.9.0",
     "body-parser": "^1.15.2",
     "bower": "^1.8.0",
     "common-errors": "^1.0.0",

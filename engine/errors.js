@@ -20,6 +20,7 @@ exports = module.exports = {
   PageNotFoundError: define('PageNotFoundError'),
 
   // Data-file handling Errors
+  SpecViolationError: define('SpecViolationError'),
   UnsupportedSpecError: define('UnsupportedSpecError'),
 
   // Calculation Errors

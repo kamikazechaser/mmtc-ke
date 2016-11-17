@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][Unreleased]
 
+Added:
+
+* Validate data files, throwing `SpecViolationError` when necessary
+
 Changed:
 
 * Throw a `UnsupportedSpecError` if a data file is found **not** using the

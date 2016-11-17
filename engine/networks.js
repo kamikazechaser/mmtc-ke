@@ -36,14 +36,17 @@ const path = require('path');
 
 
 // npm-installed modules
+const Ajv = require('ajv');
 const Debug = require('debug');
 
 
 // own modules
 const errors = require('./errors');
+const schema = require('../schema/definitions.json');
 
 
 // module variables
+const ajv = new Ajv();
 const debug = Debug('mmtc-ke:engine:networks');
 const datadir = path.resolve(__dirname, '../data');
 const cache = {
@@ -62,6 +65,12 @@ function init() {
 
     const filepath = path.join(__dirname, '../data', filename);
     const data = require(filepath);
+
+    const valid = ajv.validate(schema, data);
+    if (!valid) {
+      console.error(ajv.errors); // eslint-disable-line no-console
+      throw new errors.SpecViolationError(`data file '${filename}' is invalid`);
+    }
 
     const spec = data.meta.spec;
     if (Math.floor(spec) !== SPEC_VERSION) {
