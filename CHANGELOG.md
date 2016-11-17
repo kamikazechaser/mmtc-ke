@@ -5,7 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][Unreleased]
 
+Changed:
 
+* Throw a `UnsupportedSpecError` if a data file is found **not** using the
+  expected spec version
 
 
 ## [0.7.0][0.7.0] - 2016-11-16

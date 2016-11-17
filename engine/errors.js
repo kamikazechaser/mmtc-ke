@@ -19,6 +19,9 @@ exports = module.exports = {
   // General Errors
   PageNotFoundError: define('PageNotFoundError'),
 
+  // Data-file handling Errors
+  UnsupportedSpecError: define('UnsupportedSpecError'),
+
   // Calculation Errors
   InvalidAmountError: define('InvalidAmountError'),
   AmountNotAllowedError: define('AmountNotAllowedError'),
