@@ -5,6 +5,7 @@
     "config/",
     "data/",
     "engine/",
-    "routes/"
+    "routes/",
+    "schema/"
   ]
 }
