@@ -107,4 +107,4 @@ This is the very first version.
 [0.5.0]:https://github.com/forfuturellc/mmtc-ke/releases/tag/v0.5.0
 [0.6.0]:https://github.com/forfuturellc/mmtc-ke/releases/tag/v0.6.0
 [0.7.0]:https://github.com/forfuturellc/mmtc-ke/releases/tag/v0.7.0
-[Unreleased]: https://github.com/forfuturellc/mmtc-ke/compare/v0.7.0...HEAD
+[Unreleased]: https://github.com/forfuturellc/mmtc-ke/compare/v0.7.0...develop
