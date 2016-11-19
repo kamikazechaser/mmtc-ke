@@ -42,7 +42,9 @@ router.get('/', function(req, res) {
 router
   .route('/n/:name')
   .get(function(req, res) {
-    return renderNetworkPage(req, res);
+    return renderNetworkPage(req, res, {
+      network: engine.networks.getNetwork(req.params.name),
+    });
   })
   .post(function(req, res) {
     if (!_.isString(req.body.amount)) {

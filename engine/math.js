@@ -7,11 +7,15 @@
  */
 
 
+// constants
+const BROWSER = typeof window !== 'undefined';
+
+
 exports = module.exports = {
   /**
    * Calculate the Cost.
    *
-   * @param  {String} name of the network
+   * @param  {String|Object} network Network data file or name of the network
    * @param  {Object} params of the calculation
    * @param  {String} params.transactionType e.g. 'transfer', 'withdrawal'
    * @param  {String} params.transactor e.g. 'atm', 'registered users'
@@ -41,22 +45,29 @@ exports = module.exports = {
   parseRange: parseRange,
 };
 
+if (BROWSER) {
+  window.mmtcmath = exports; // eslint-disable-line no-undef
+}
+
 
 // npm-installed modules
-const _ = require('lodash');
+const isNumber = require('lodash/isNumber');
 
 
 // own modules
 const errors = require('./errors');
-const networks = require('./networks');
+const networks = BROWSER || require('./networks');
 
 
-function calculate(name, params) {
-  let network, transaction, transactionClass;
+function calculate(network, params) {
+  let transaction, transactionClass;
 
-  network = networks.getNetwork(name);
-  if (!network) {
-    throw new errors.NetworkNotFoundError(`network '${name}' not found`);
+  if (typeof network === 'string') {
+    const name = network;
+    network = networks.getNetwork(name);
+    if (!network) {
+      throw new errors.NetworkNotFoundError(`network '${name}' not found`);
+    }
   }
 
   transaction = network.transactions.find(function(t) {
@@ -110,7 +121,7 @@ function parseRange(range) {
     amount: _parse(range.amount),
   };
 
-  if (_.isNumber(result.low) && _.isNumber(result.high) && _.isNumber(range.amount)) {
+  if (isNumber(result.low) && isNumber(result.high) && isNumber(range.amount)) {
     return result;
   }
 

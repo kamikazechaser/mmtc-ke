@@ -3,10 +3,15 @@
  #}
 {% extends '_layouts/default.html' %}
 {% set cssURL = '/css/network.css' %}
-{% set JSURL = '/js/network.js' %}
+{% set scripts = ['/js/engine.js', '/js/network.js'] %}
 
 
 {% block content %}
+<script>
+  window.network = {{ network | dump | safe }};
+</script>
+
+
 <!-- Networks -->
 <div class="networks-list-wrapper">
   <ul class="networks-list">
@@ -26,23 +31,26 @@
 
 
 <!--  Result -->
-{% if result %}
 <div class="result center notification-wrapper">
-  {% if result.error %}{% set alert_class = 'danger' %}{% endif %}
-  {% if result.success %}{% set alert_class = 'success' %}{% endif %}
+  {% if result %}
+    {% if result.error %}{% set alert_class = 'danger' %}{% endif %}
+    {% if result.success %}{% set alert_class = 'success' %}{% endif %}
+  {% else %}
+    {% set alert_class = 'noop' %}
+  {% endif %}
 
-  <div class="animated bounceIn">
+  <div class="{% if result %}animated bounceIn{% else %}no-display{% endif %}">
     <div id="notification" class="alert alert-{{ alert_class }} alert-dismissible" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        {% if result.error %}
-        <strong>Error:</strong> {{ result.message | capitalize }}
-        {% elif result.success %}
-        <p>It will cost you <span class="results-cost"><strong>KES. {{ result.cost }} /=</strong></span></p>
-        {% endif %}
+        <div class="section-error">
+          <strong>Error:</strong> <span class='text-error'>{{ result.message | capitalize }}</span>
+        </div>
+        <div class="section-success">
+          <p>It will cost you <span class="results-cost"><strong>KES. <span class='text-cost'>{{ result.cost }}</span> /=</strong></span></p>
+        </div>
     </div>
   </div>
 </div>
-{% endif %}
 
 
 <!-- Tab panel for the transactions -->

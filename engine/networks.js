@@ -10,6 +10,8 @@
 exports = module.exports = {
   /**
    * Initialize the Engine. It executes synchronously.
+   *
+   * @throws UnsupportedSpecError if a data-file uses an unsupported spec
    */
   init: init,
   /**
@@ -33,20 +35,49 @@ const fs = require('fs');
 const path = require('path');
 
 
+// npm-installed modules
+const Ajv = require('ajv');
+const Debug = require('debug');
+
+
+// own modules
+const errors = require('./errors');
+const schema = require('../schema/definitions.json');
+
+
 // module variables
+const ajv = new Ajv();
+const debug = Debug('mmtc-ke:engine:networks');
 const datadir = path.resolve(__dirname, '../data');
 const cache = {
   networks: {},
 };
 const isJsonFileRegex = new RegExp('.json$');
+// SPEC_VERSION is the *major* version number of the Data File Specification
+// that this engine can handle.
+const SPEC_VERSION = 0;
 
 
 function init() {
+  debug('reading data files');
   fs.readdirSync(datadir).forEach(function(filename) {
     if (!isJsonFileRegex.test(filename)) return;
 
     const filepath = path.join(__dirname, '../data', filename);
     const data = require(filepath);
+
+    const valid = ajv.validate(schema, data);
+    if (!valid) {
+      console.error(ajv.errors); // eslint-disable-line no-console
+      throw new errors.SpecViolationError(`data file '${filename}' is invalid`);
+    }
+
+    const spec = data.meta.spec;
+    if (Math.floor(spec) !== SPEC_VERSION) {
+      throw new errors.UnsupportedSpecError(`spec version '${spec}' is not supported`);
+    }
+
+    debug('loaded data for %s', data.name);
     cache.networks[data.name] = data;
   });
 }

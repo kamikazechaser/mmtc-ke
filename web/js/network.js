@@ -10,6 +10,10 @@
 $(document).ready(function() {
   'use strict';
 
+  var $notification = $('#notification');
+  $notification.$wrapper = $notification.parent();
+  $notification.$textError = $notification.find('.text-error');
+  $notification.$textCost = $notification.find('.text-cost');
   var $select = $('.select-class');
 
   $select.on('change', function() {
@@ -26,5 +30,53 @@ $(document).ready(function() {
     var $option = $($(select).find('option:selected')[0]);
     $('.tab-pane.active .table-ranges.active').removeClass('active');
     $($option.data('table')).addClass('active');
+  }
+
+  $('form.cost-calculation').each(function() {
+    var $form = $(this);
+
+    // add a 'submit' handler that calculates the cost
+    $form.submit(function(evt) {
+      evt.preventDefault();
+      var parameterArray = $form.serializeArray();
+      var parameters = {};
+      var cost;
+
+      parameterArray.forEach(function(param) {
+        parameters[param.name] = param.value;
+      });
+
+      try {
+        cost = window.mmtcmath.calculate(window.network, parameters);
+        notify(cost);
+      } catch(ex) {
+        var message = ex.message;
+        // capitalize the message
+        message = message.charAt(0).toUpperCase() + message.slice(1);
+        notify(message, false);
+      }
+    });
+  });
+
+  function notify(message, success) {
+    if (typeof success === 'undefined') {
+      success = true;
+    }
+
+    $notification.$wrapper.addClass('no-display');
+    $notification.removeClass('alert-danger alert-success');
+
+    if (success) {
+      $notification.$textCost.text(message);
+      $notification.addClass('alert-success');
+    } else {
+      $notification.$textError.text(message);
+      $notification.addClass('alert-danger');
+    }
+
+    setTimeout(function() {
+      $notification.$wrapper.addClass('animated bounceIn')
+        .removeClass('no-display');
+    }, 0);
   }
 });

@@ -7,6 +7,9 @@ node_modules/
 # sass output
 web/css/
 
+# browserify bundles
+web/js/engine.js
+
 # vendor files
 web/vendor/
 
