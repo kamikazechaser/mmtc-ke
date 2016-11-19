@@ -3,7 +3,8 @@
 {% macro class_active(class, first) %}{% if (class.name == body.transactor) or (first and not body) %}active{% endif %}{% endmacro %}
 
 
-<form action="{{ __path }}" method="post">
+<form action="{{ __path }}" method="post"
+      class="cost-calculation">
 
   <!-- Transaction type -->
   <input type="hidden" name="transactionType" value="{{ transaction.name }}" />

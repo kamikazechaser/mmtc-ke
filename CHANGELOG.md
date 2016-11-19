@@ -7,6 +7,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 Added:
 
+* Support client-side calculation
 * Validate data files, throwing `SpecViolationError` when necessary
 
 Changed:

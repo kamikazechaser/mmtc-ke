@@ -7,28 +7,43 @@
  */
 
 
+// constants
+const BROWSER = typeof window !== 'undefined';
+
+
 // npm-installed modules
-const errors = require('common-errors');
+let commonErrors = BROWSER || require('common-errors');
 
 
 // module variables
-const define = errors.helpers.generateClass;
-
-
-exports = module.exports = {
+const define = BROWSER || commonErrors.helpers.generateClass;
+const errors = {};
+const definitions = [
   // General Errors
-  PageNotFoundError: define('PageNotFoundError'),
+  'PageNotFoundError',
 
   // Data-file handling Errors
-  SpecViolationError: define('SpecViolationError'),
-  UnsupportedSpecError: define('UnsupportedSpecError'),
+  'SpecViolationError',
+  'UnsupportedSpecError',
 
   // Calculation Errors
-  InvalidAmountError: define('InvalidAmountError'),
-  AmountNotAllowedError: define('AmountNotAllowedError'),
-  AmountNotFoundError: define('AmountNotFoundError'),
-  NetworkNotFoundError: define('NetworkNotFoundError'),
-  RangeNotFoundError: define('RangeNotFoundError'),
-  TransactionClassNotFoundError: define('TransactionClassNotFoundError'),
-  TransactionNotFoundError: define('TransactionNotFoundError'),
-};
+  'InvalidAmountError',
+  'AmountNotAllowedError',
+  'AmountNotFoundError',
+  'NetworkNotFoundError',
+  'RangeNotFoundError',
+  'TransactionClassNotFoundError',
+  'TransactionNotFoundError',
+];
+
+
+definitions.forEach(function(definition) {
+  if (BROWSER) {
+    errors[definition] = Error;
+  } else {
+    errors[definition] = define(definition);
+  }
+});
+
+
+exports = module.exports = errors;

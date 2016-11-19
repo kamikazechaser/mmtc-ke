@@ -1,8 +1,13 @@
 <script src="{{ site.baseurl }}/vendor/jquery/dist/jquery.min.js"></script>
 <script src="{{ site.baseurl }}/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
 
-{% set defaultJSURL = '/js/index.js' %}
-<script src="{{ site.baseurl }}{{ JSURL or defaultJSURL }}"></script>
+{% if not scripts %}
+{% set scripts = ['/js/index.js'] %}
+{% endif %}
+
+{% for script in scripts %}
+<script src="{{ site.baseurl }}{{ script }}"></script>
+{% endfor %}
 
 {# Google analytics #}
 <script>
