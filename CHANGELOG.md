@@ -5,6 +5,11 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][Unreleased]
 
+
+
+
+## [0.8.0][0.8.0] - 2016-11-19
+
 Added:
 
 * Support client-side calculation
@@ -108,4 +113,5 @@ This is the very first version.
 [0.5.0]:https://github.com/forfuturellc/mmtc-ke/releases/tag/v0.5.0
 [0.6.0]:https://github.com/forfuturellc/mmtc-ke/releases/tag/v0.6.0
 [0.7.0]:https://github.com/forfuturellc/mmtc-ke/releases/tag/v0.7.0
-[Unreleased]: https://github.com/forfuturellc/mmtc-ke/compare/v0.7.0...develop
+[0.8.0]:https://github.com/forfuturellc/mmtc-ke/releases/tag/v0.8.0
+[Unreleased]: https://github.com/forfuturellc/mmtc-ke/compare/v0.8.0...develop
