@@ -23,6 +23,7 @@ compatible, consider sending a pull request.
 * [application architecture](#arch)
 * [starting the application](#start)
 * [data entry](#data-entry)
+* [bundling for the browser](#browser-bundle)
 * [deployment](#deploy)
 * [news](#news)
 
@@ -38,6 +39,8 @@ The directory structure of the code repository:
 |-- data/       # data files, particularly for the different networks
 |-- engine/     # business logic (the "heavy-lifting")
 |-- routes/     # routing logic
+|-- schema/     # JSON Schema files for our data-file specification
+|-- test/       # our tests
 |-- web/        # web interface (whatever you see in the browser)
 `-- app.js      # main entry point, with bootstrap code
 ```
@@ -47,16 +50,28 @@ The application is built using, mainly:
 * [express][express]: THE web framework
 * [node-config][node-config]: handles application configuration
 * [nunjucks][nunjucks]: for page templating
+* [ajv][ajv]: JSON schema validator
+* [showdown][showdown]: Markdown converter
 
 [express]:http://expressjs.com/
 [node-config]:https://github.com/lorenwest/node-config
 [nunjucks]:https://mozilla.github.io/nunjucks
+[ajv]:https://github.com/epoberezkin/ajv
+[showdown]:https://showdownjs.github.io/showdown/
 
 
 <a name="start"></a>
 ### starting the application:
 
-The application can be started in either **development** or **production** mode.
+Usually, before starting the application, you'll need to build some
+files:
+
+```bash
+$ npm run build
+```
+
+The application can be started in either **development** or **production**
+mode:
 
 ```bash
 $ npm start            # start in production mode
@@ -79,6 +94,25 @@ To get started:
 
 [data]:https://github.com/forfuturellc/mmtc-ke/blob/master/data/
 [spec]:https://github.com/forfuturellc/mmtc-ke/blob/master/data/SPEC.md
+
+
+<a name="browser-bundle"></a>
+### bundling for the browser:
+
+We are **not** re-implementing the cost calculation module (`engine/math.js`)
+and other necessary modules to support calculations on browser
+(client-side). Instead, we bundle the modules, using
+[browserify][browserify], producing `web/js/engine.js`. This script allows
+us to re-use the same code, on server and browser.
+
+However, there are some significant variations. In particular, we:
+
+* require the data-file to be available on the browser; this is
+  injected by `nunjucks`.
+* do **not** have access to the elaborate error classes; all errors are
+  basically just instances of `Error`
+
+[browserify]:https://github.com/substack/node-browserify#readme
 
 
 <a name="deploy"></a>
