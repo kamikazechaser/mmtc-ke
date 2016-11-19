@@ -50,7 +50,10 @@ $(document).ready(function() {
         cost = window.mmtcmath.calculate(window.network, parameters);
         notify(cost);
       } catch(ex) {
-        notify(ex.message, false);
+        var message = ex.message;
+        // capitalize the message
+        message = message.charAt(0).toUpperCase() + message.slice(1);
+        notify(message, false);
       }
     });
   });
