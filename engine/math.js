@@ -64,7 +64,7 @@ function calculate(network, params) {
 
   if (typeof network === 'string') {
     const name = network;
-    network = networks.getNetwork(network);
+    network = networks.getNetwork(name);
     if (!network) {
       throw new errors.NetworkNotFoundError(`network '${name}' not found`);
     }

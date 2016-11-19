@@ -12,7 +12,7 @@ const BROWSER = typeof window !== 'undefined';
 
 
 // npm-installed modules
-let commonErrors = BROWSER || require('common-errors');
+const commonErrors = BROWSER || require('common-errors');
 
 
 // module variables
