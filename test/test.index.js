@@ -39,5 +39,5 @@ describe('E2E tests for API', function() {
     app.run({ port }, done);
   });
 
-  elbow.run(it, `http://localhost:${port}/api/`, path.join(__dirname, 'elbow'));
+  elbow.run(it, `http://localhost:${port}/api/v0`, path.join(__dirname, 'elbow'));
 });
