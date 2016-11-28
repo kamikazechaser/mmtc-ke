@@ -17,13 +17,14 @@ const express = require('express');
 
 
 // own modules
-const engine = require('../engine');
-const utils = require('./utils');
+const engine = require('../../engine');
+const utils = require('.././utils');
 
 
 // module variables
 const router = express.Router();
 const logger = engine.clients.getLogger();
+const version = path.basename(module.filename, '.js');
 
 
 // expose the router
@@ -33,7 +34,7 @@ exports.router = router;
 
 // API doc
 router.get('/', function(req, res, next) {
-  const filepath = path.resolve(__dirname, '../docs/api.md');
+  const filepath = path.resolve(__dirname, `../../docs/api/${version}.md`);
   return utils.renderMarkdownPage(req, res, next, filepath);
 });
 

@@ -13,7 +13,9 @@ const express = require('express');
 
 
 // own modules
-const api = require('./api');
+const apis = {
+  'v0': require('./api/v0'),
+};
 const public = require('./public');
 const utils = require('./utils');
 
@@ -21,6 +23,8 @@ const utils = require('./utils');
 // module variables
 const debug = Debug('mmtc-ke:routes:index');
 const router = express.Router();
+// TODO: add doc
+const API_VERSION = 'v0';
 
 
 // exports
@@ -29,8 +33,16 @@ exports.router = router;
 exports.utils = utils;
 
 
-debug('mounting API router');
-router.use('/api', api);
+for (let version in apis) {
+  debug('mounting API %s router', version);
+  router.use(`/api/${version}`, apis[version]);
+}
+
+
+debug('add redirect route for current API docs');
+router.get('/api', function(req, res) {
+  return res.redirect(`${req.baseUrl}/api/${API_VERSION}`);
+});
 
 
 debug('mounting public router');
