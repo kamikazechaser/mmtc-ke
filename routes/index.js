@@ -7,15 +7,18 @@
  */
 
 
+
+// built-in modules
+const fs = require('fs');
+const path = require('path');
+
+
 // npm-installed modules
 const Debug = require('debug');
 const express = require('express');
 
 
 // own modules
-const apis = {
-  'v0': require('./api/v0'),
-};
 const public = require('./public');
 const utils = require('./utils');
 
@@ -23,8 +26,9 @@ const utils = require('./utils');
 // module variables
 const debug = Debug('mmtc-ke:routes:index');
 const router = express.Router();
-// TODO: add doc
-const API_VERSION = 'v0';
+const apiDir = path.resolve(__dirname, 'api');
+let apiVersion = -1;
+const apis = {};
 
 
 // exports
@@ -33,15 +37,30 @@ exports.router = router;
 exports.utils = utils;
 
 
-for (let version in apis) {
-  debug('mounting API %s router', version);
-  router.use(`/api/${version}`, apis[version]);
-}
+// API doc
+router.get('/api/:version', function(req, res, next) {
+  if (!apis[req.params.version.slice(1)]) {
+    return next();
+  }
+  const filepath = path.resolve(__dirname, `../docs/api/${req.params.version}.md`);
+  return utils.renderMarkdownPage(req, res, next, filepath);
+});
+
+
+fs.readdirSync(apiDir).forEach(function(version) {
+  version = parseInt(version.slice(1), 10);
+  apis[version] = require(`./api/v${version}`);
+
+  debug('mounting API v%s router', version);
+  router.use(`/api/v${version}`, apis[version]);
+
+  if (version > apiVersion) apiVersion = version;
+});
 
 
 debug('add redirect route for current API docs');
 router.get('/api', function(req, res) {
-  return res.redirect(`${req.baseUrl}/api/${API_VERSION}`);
+  return res.redirect(`${req.baseUrl}/api/v${apiVersion}`);
 });
 
 

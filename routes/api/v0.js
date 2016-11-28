@@ -7,10 +7,6 @@
  */
 
 
-// built-in modules
-const path = require('path');
-
-
 // npm-installed modules
 const _ = require('lodash');
 const express = require('express');
@@ -18,25 +14,16 @@ const express = require('express');
 
 // own modules
 const engine = require('../../engine');
-const utils = require('.././utils');
 
 
 // module variables
 const router = express.Router();
 const logger = engine.clients.getLogger();
-const version = path.basename(module.filename, '.js');
 
 
 // expose the router
 exports = module.exports = router;
 exports.router = router;
-
-
-// API doc
-router.get('/', function(req, res, next) {
-  const filepath = path.resolve(__dirname, `../../docs/api/${version}.md`);
-  return utils.renderMarkdownPage(req, res, next, filepath);
-});
 
 
 // serving data for all networks

@@ -73,14 +73,13 @@ function renderPage(req, res, path, ctx) {
 }
 
 
-function renderMarkdownPage(req, res, next, filepath) {
+function renderMarkdownPage(req, res, next, filepath, ctx={}) {
   return engine.pages.getHTML(filepath, function(getErr, html) {
     if (getErr) {
       return next(getErr);
     }
 
-    return renderPage(req, res, 'misc/content', {
-      content: html,
-    });
+    ctx.content = html;
+    return renderPage(req, res, 'misc/content', ctx);
   });
 }
