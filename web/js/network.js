@@ -5,6 +5,7 @@
  *
  * Functionality on the networks page.
  */
+/* global store:false */
 
 
 $(document).ready(function() {
@@ -15,6 +16,44 @@ $(document).ready(function() {
   $notification.$textError = $notification.find('.text-error');
   $notification.$textCost = $notification.find('.text-cost');
   var $select = $('.select-class');
+  var settings = {};
+
+  if (!store.enabled) {
+    $('#alert-store').show();
+  }
+
+  $('#panel-settings input[type="checkbox"]').each(function() {
+    var $this = $(this);
+    var settingKey = $this.data('setting');
+    var storeSettingKey = 'settings.' + settingKey;
+    var defaultState = $this.is(':checked');
+    var updateState = function(state) {
+      settings[settingKey] = state;
+    };
+
+    updateState(defaultState);
+
+    if (store.enabled) {
+      var state = store.get(storeSettingKey);
+      if (typeof state === 'boolean') {
+        updateState(state);
+      }
+    }
+
+    $this.bootstrapSwitch({
+      size: 'mini',
+      onText: 'YES',
+      offText: 'NO',
+      state: settings[settingKey]
+    });
+
+    $this.on('switchChange.bootstrapSwitch', function(evt, state) {
+      if (store.enabled) {
+        store.set(storeSettingKey, state);
+      }
+      updateState(state);
+    });
+  });
 
   $select.on('change', function() {
     return tableActivate(this);
@@ -37,6 +76,10 @@ $(document).ready(function() {
 
     // add a 'submit' handler that calculates the cost
     $form.submit(function(evt) {
+      if (!settings.onclient) {
+        return true;
+      }
+
       evt.preventDefault();
       var parameterArray = $form.serializeArray();
       var parameters = {};

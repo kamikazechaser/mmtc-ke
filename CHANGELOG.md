@@ -5,7 +5,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][Unreleased]
 
+Added:
 
+* Support settings
 
 
 ## [0.8.0][0.8.0] - 2016-11-19

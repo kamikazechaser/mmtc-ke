@@ -3,7 +3,12 @@
  #}
 {% extends '_layouts/default.html' %}
 {% set cssURL = '/css/network.css' %}
-{% set scripts = ['/js/engine.js', '/js/network.js'] %}
+{% set scripts = [
+  '/vendor/bootstrap-switch/dist/js/bootstrap-switch.min.js',
+  '/js/engine.js',
+  '/js/network.js',
+  '/vendor/store-js/store.min.js'
+] %}
 
 
 {% block content %}
@@ -68,8 +73,10 @@
     {% endfor %}
 
     {% if network.ussd_codes %}
-    <li role="presentation" class="USSD Codes"><a href="#panel-ussd_codes" aria-controls="home" role="tab" data-toggle="tab">USSD Codes</a></li>
+    <li role="presentation"><a href="#panel-ussd_codes" aria-controls="home" role="tab" data-toggle="tab">USSD Codes</a></li>
     {% endif %}
+
+    <li role="presentation" class="pull-right"><a href="#panel-settings" aria-controls="home" role="tab" data-toggle="tab">Settings</a></li>
   </ul>
 
   <!-- Tab panes -->
@@ -83,6 +90,23 @@
 
     <div role="tabpanel" class="tab-pane" id="panel-ussd_codes">
       {% include "_includes/ussd_codes.html" %}
+    </div>
+
+    <div role="tabpanel" class="tab-pane" id="panel-settings">
+      <!-- Alert messages for settings -->
+      <div id="alert-store" class="alert alert-danger no-display" role="alert">
+        <small><strong>Sorry!</strong> Your settings will <strong>not</strong> be saved by your browser.</small>
+      </div>
+      <!-- The settings' switches -->
+      <div class="row">
+        <!-- setting: onclient -->
+        <div class="col-xs-2 col-xs-offset-1">
+          <input type="checkbox" data-setting="onclient" checked>
+        </div>
+        <div class="col-xs-8 col-xs-push-1">
+          <p>Calculate on my browser</p>
+        </div>
+      </div>
     </div>
 
   </div>
