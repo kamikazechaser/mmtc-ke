@@ -7,7 +7,6 @@
  */
 
 
-
 // built-in modules
 const fs = require('fs');
 const path = require('path');
@@ -38,7 +37,7 @@ exports.router = router;
 exports.utils = utils;
 
 
-// Redirect to the latest API docs
+// Redirecting to the latest API docs
 router.get('/api', function(req, res) {
   return res.redirect(`${req.baseUrl}/api/v${apiVersion}`);
 });
@@ -46,7 +45,7 @@ router.get('/api', function(req, res) {
 
 // Rendering the API docs
 router.get('/api/:version', function(req, res, next) {
-  const match = /^v(\d)$/.exec(req.params.version);
+  const match = /^v(\d+)$/.exec(req.params.version);
   if (!match) return next();
 
   if (!apis[match[1]]) {

@@ -25,8 +25,8 @@ const app = require('../app');
 // module variables
 const schemaDir = path.resolve(__dirname, '../schema');
 const staticServer = express();
-const staticServerPort = 9667;
 const appPort = 9666;
+const staticServerPort = 9667;
 
 
 before(function(done) {
