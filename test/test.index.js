@@ -8,12 +8,14 @@
 
 
 // built-in modules
+const fs = require('fs');
 const path = require('path');
 
 
 // npm-installed modules
 const elbow = require('elbow');
 const express = require('express');
+const should = require('should');
 
 
 // own modules
@@ -40,4 +42,20 @@ describe('E2E tests for API', function() {
   });
 
   elbow.run(it, `http://localhost:${port}/api/v0`, path.join(__dirname, 'elbow'));
+});
+
+
+describe('API docs', function() {
+  it('exist for each available API', function() {
+    const apis = fs.readdirSync(path.resolve(__dirname, '../routes/api'));
+    const docs = fs.readdirSync(path.resolve(__dirname, '../docs/api'));
+
+    // determine missing docs
+    const missing = apis.filter(function(api) {
+      const doc = path.basename(api, '.js') + '.md';
+      return docs.indexOf(doc) === -1;
+    });
+
+    should(missing).be.empty();
+  });
 });
