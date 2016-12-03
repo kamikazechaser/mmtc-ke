@@ -19,6 +19,7 @@ const express = require('express');
 
 
 // own modules
+const engine = require('../engine');
 const public = require('./public');
 const utils = require('./utils');
 
@@ -39,9 +40,15 @@ exports.utils = utils;
 
 // API doc
 router.get('/api/:version', function(req, res, next) {
-  if (!apis[req.params.version.slice(1)]) {
-    return next();
+  const match = /^v(\d)$/.exec(req.params.version);
+  if (!match) return next();
+
+  if (!apis[match[1]]) {
+    return utils.renderPage(req, res, 'error', {
+      error: new engine.errors.PageNotFoundError(`Documentation for API ${req.params.version} not found`),
+    });
   }
+
   const filepath = path.resolve(__dirname, `../docs/api/${req.params.version}.md`);
   return utils.renderMarkdownPage(req, res, next, filepath);
 });
