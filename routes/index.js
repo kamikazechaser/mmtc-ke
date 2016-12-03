@@ -38,7 +38,13 @@ exports.router = router;
 exports.utils = utils;
 
 
-// API doc
+// Redirect to the latest API docs
+router.get('/api', function(req, res) {
+  return res.redirect(`${req.baseUrl}/api/v${apiVersion}`);
+});
+
+
+// Rendering the API docs
 router.get('/api/:version', function(req, res, next) {
   const match = /^v(\d)$/.exec(req.params.version);
   if (!match) return next();
@@ -62,12 +68,6 @@ fs.readdirSync(apiDir).forEach(function(version) {
   router.use(`/api/v${version}`, apis[version]);
 
   if (version > apiVersion) apiVersion = version;
-});
-
-
-debug('add redirect route for current API docs');
-router.get('/api', function(req, res) {
-  return res.redirect(`${req.baseUrl}/api/v${apiVersion}`);
 });
 
 
