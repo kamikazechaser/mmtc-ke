@@ -26,22 +26,19 @@ const app = require('../app');
 const schemaDir = path.resolve(__dirname, '../schema');
 const staticServer = express();
 const staticServerPort = 9667;
+const appPort = 9666;
 
 
 before(function(done) {
   staticServer.use(express.static(schemaDir));
-  staticServer.listen(staticServerPort, done);
+  app.run({ port: appPort }, function() {
+    staticServer.listen(staticServerPort, done);
+  });
 });
 
 
-describe('E2E tests for API', function() {
-  const port = 9666;
-
-  before(function(done) {
-    app.run({ port }, done);
-  });
-
-  elbow.run(it, `http://localhost:${port}/api/v0`, path.join(__dirname, 'elbow'));
+describe('E2E tests for API v0', function() {
+  elbow.run(it, `http://localhost:${appPort}/api/v0`, path.join(__dirname, 'elbow/v0'));
 });
 
 
