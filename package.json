@@ -1,6 +1,6 @@
 {
   "name": "mmtc",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "description": "Calculate Mobile Money Transaction Cost",
   "private": true,
   "repository": {
