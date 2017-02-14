@@ -110,8 +110,8 @@ function run(options, done) {
 
   debug('starting server');
   app.listen(options.port, options.host, function() {
-    logger.info('server listening');
-    debug('server started at http://%s:%s', options.host, options.port);
+    logger.info('server listening on http://%s:%s', options.host, options.port);
+    debug('server listening on http://%s:%s', options.host, options.port);
     if (done) return done();
   });
 }

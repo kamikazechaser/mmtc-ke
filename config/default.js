@@ -13,8 +13,8 @@ const config = {};
 
 // server configuration
 config.server = {};
-config.server.port = process.env.OPENSHIFT_NODEJS_PORT || 8090;
-config.server.ip = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
+config.server.port = process.env.NODEJS_PORT || 8080;
+config.server.ip = process.env.NODEJS_IP || '0.0.0.0';
 
 
 // site configuration
