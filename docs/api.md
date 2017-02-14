@@ -10,10 +10,7 @@ This API is useful for developers who:
 
 ## Introduction:
 
-The **Base URLs** for the API are `http://mmtc.forfuture.co.ke/api`
-(Insecure but more permanent)
-and `https://mmtcke-forfutureco.rhcloud.com/api`
-(Secure but less permanent).
+The **Base URL** for the API is `https://mmtc.forfuture.tech/api`.
 
 API Characteristics:
 
