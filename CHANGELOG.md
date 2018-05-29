@@ -7,6 +7,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 Changed:
 
+* Drop dependencies: `forever`
 * Update dependencies
 
 

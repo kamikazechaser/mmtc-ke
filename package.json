@@ -18,7 +18,7 @@
   "scripts": {
     "build": "grunt build",
     "publish": "npm run build && docker build --tag forfuture/mmtc --build-arg \"NODE_ENV=production\" .",
-    "start": "forever app.js",
+    "start": "NODE_ENV=production node app.js",
     "start-dev": "DEBUG=mmtc-ke:* nodemon app.js",
     "test": "grunt test",
     "test-coverage": "istanbul cover _mocha --report lcovonly -- -R spec test/test.*.js"
@@ -30,7 +30,6 @@
     "config": "^1.25.1",
     "debug": "^3.1.0",
     "express": "^4.14.1",
-    "forever": "^0.15.3",
     "lodash": "^4.17.4",
     "nunjucks": "^3.0.0",
     "showdown": "^1.6.4",
