@@ -2,13 +2,3 @@ language: node_js
 node_js:
 - '6'
 after_script: npm run test-coverage && cat ./coverage/lcov.info | coveralls
-deploy:
-  provider: openshift
-  user: mugo@forfuture.co.ke
-  password:
-    secure: eVuRZ/p3JerZqPIJxjfITMj4s/mBBfFmyTJNWWotjExdxEPEqxeAJOA5lI6n9d8i6iHUENkpQHJeVzeyMYwd7ove6QkWC1VAK0DHr2siJhrueQIfeX/zNh+aaqxmqYRo+JhneVCEoq/Rr8/NBHTCpg51D1o3WbnCazYzlnnWIAu5rN5LEhLOx3N2EgezkdTbVh82H398P2tyhGHz4qWkzNItVCfRSGsVczSYq3g4qZAQX+pMzG8FWhXZBFiH1SLRAq6Yby2FDkqrsQFJseN/sQx8YSUYscDq+NFjHisSlsvODv2auc8mS40Q1/gvVCK0bmdDBbhpmOBcxUM1xbsyTfYFipE6Ehfw6T+QBjMl1uGW8/s8MvbbcEUe4SDfEugVgIDc8+2zwm2dhWX7kQa2yRwmDzYpWZcVeWphQ95kYkKMiXtjedZWngDSHFjR1OacWtricazXnOmPWQwzXXUQL5Isa+n0KLb8BQDsHHaYSy94cqtGFjSDrCs3X/r6T/jtWtzKul7xth5EMcHn/9DyvCO3F4hAZWb6hwTaQ2ea0J1DM8Cu4J48+Sg2MpgF8Al9HfrcHDKsRicMLuqmxaPkrB2L6qLGc/h6RoLNCIGDl6mn3Af/anQluh6GXnCQum24qk3dmcoJ5Y+NxhikckR2NdNxK5LXnkN3ogpbvwdHZEI=
-  app: mmtcke
-  domain: forfutureco
-  on:
-    repo: forfuturellc/mmtc-ke
-    branch: master
