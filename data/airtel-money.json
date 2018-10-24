@@ -1,8 +1,8 @@
 {
   "name": "airtel-money",
   "meta": {
-    "spec": "0.2",
-    "date_updated": "2016-06-16",
+    "spec": "0.5",
+    "date_updated": "2018-10-24",
     "url": "http://africa.airtel.com/wps/wcm/connect/africarevamp/Kenya/Airtel_Money"
   },
   "transactions": [
@@ -10,35 +10,21 @@
       "name": "transfer",
       "classes": [
         {
-          "name": "registered users",
+          "name": "all network users",
           "ranges": [
-            { "low": "-Infinity", "high": 49, "amount": -1 },
-            { "low": 50,     "high": 100,     "amount": 0 },
-            { "low": 101,    "high": 1000,    "amount": 0 },
-            { "low": 1001,   "high": 2500,    "amount": 0 },
-            { "low": 2501,   "high": 5000,    "amount": 0 },
-            { "low": 5001,   "high": 10000,   "amount": 0 },
-            { "low": 10001,  "high": 20000,   "amount": 0 },
-            { "low": 20001,  "high": 35000,   "amount": 0 },
-            { "low": 35001,  "high": 50000,   "amount": 0 },
-            { "low": 50001,  "high": 70000,   "amount": 0 },
-            { "low": 70001,  "high": "+Infinity", "amount": -1 }
-          ]
-        },
-        {
-          "name": "unregistered users",
-          "ranges": [
-            { "low": "-Infinity", "high": 49, "amount": -1 },
-            { "low": 50,     "high": 100,     "amount": 0 },
-            { "low": 101,    "high": 1000,    "amount": 0 },
-            { "low": 1001,   "high": 2500,    "amount": 0 },
-            { "low": 2501,   "high": 5000,    "amount": 0 },
-            { "low": 5001,   "high": 10000,   "amount": 0 },
-            { "low": 10001,  "high": 20000,   "amount": 0 },
-            { "low": 20001,  "high": 35000,   "amount": 0 },
-            { "low": 35001,  "high": 50000,   "amount": 0 },
-            { "low": 50001,  "high": 70000,   "amount": 0 },
-            { "low": 70001,  "high": "+Infinity", "amount": -1 }
+            { "low": "-Infinity", "high": 9, "amount": -1 },
+            { "low": 10,     "high": 100,     "amount": 0 },
+            { "low": 101,    "high": 500,     "amount": 7 },
+            { "low": 501,    "high": 1000,    "amount": 9 },
+            { "low": 1001,   "high": 1500,    "amount": 15 },
+            { "low": 1501,   "high": 2500,    "amount": 24 },
+            { "low": 2501,   "high": 3500,    "amount": 33 },
+            { "low": 3501,   "high": 5000,    "amount": 36 },
+            { "low": 5001,   "high": 7500,    "amount": 45 },
+            { "low": 7501,   "high": 10000,   "amount": 51 },
+            { "low": 10001,  "high": 15000,   "amount": 57 },
+            { "low": 15001,  "high": 20000,   "amount": 60 },
+            { "low": 20001,  "high": "+Infinity", "amount": 66 }
           ]
         }
       ]
@@ -50,16 +36,17 @@
           "name": "agent",
           "ranges": [
             { "low": "-Infinity", "high": 49, "amount": -1 },
-            { "low": 50,     "high": 100,     "amount": 9 },
-            { "low": 101,    "high": 1000,    "amount": 25 },
-            { "low": 1001,   "high": 2500,    "amount": 26 },
-            { "low": 2501,   "high": 5000,    "amount": 45 },
-            { "low": 5001,   "high": 10000,   "amount": 75 },
-            { "low": 10001,  "high": 20000,   "amount": 145 },
-            { "low": 20001,  "high": 35000,   "amount": 175 },
-            { "low": 35001,  "high": 50000,   "amount": 270 },
-            { "low": 50001,  "high": 70000,   "amount": 330 },
-            { "low": 70001,  "high": "+Infinity", "amount": -1 }
+            { "low": 50,     "high": 100,     "amount": 10 },
+            { "low": 101,    "high": 2500,    "amount": 27 },
+            { "low": 2501,   "high": 3500,    "amount": 49 },
+            { "low": 3501,   "high": 5000,    "amount": 66 },
+            { "low": 5001,   "high": 7500,    "amount": 82 },
+            { "low": 7501,   "high": 10000,   "amount": 110 },
+            { "low": 10001,  "high": 15000,   "amount": 159 },
+            { "low": 15001,  "high": 20000,   "amount": 176 },
+            { "low": 20001,  "high": 35000, "amount": 187 },
+            { "low": 35001,  "high": 50000, "amount": 275 },
+            { "low": 50000,  "high": "+Infinity", "amount": 330 }
           ]
         }
       ]
