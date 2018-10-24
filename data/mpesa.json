@@ -1,8 +1,8 @@
 {
   "name": "mpesa",
   "meta": {
-    "spec": "0.4",
-    "date_updated": "2016-11-11",
+    "spec": "0.5",
+    "date_updated": "2018-10-24",
     "url": "http://www.safaricom.co.ke/personal/m-pesa"
   },
   "transactions": [
@@ -16,15 +16,15 @@
             { "low": 10,    "high": 100,   "amount": 0 },
             { "low": 101,   "high": 500,   "amount": 11 },
             { "low": 501,   "high": 1000,  "amount": 15 },
-            { "low": 1001,  "high": 1500,  "amount": 25 },
-            { "low": 1501,  "high": 2500,  "amount": 40 },
-            { "low": 2501,  "high": 3500,  "amount": 55 },
-            { "low": 3501,  "high": 5000,  "amount": 60 },
-            { "low": 5001,  "high": 7500,  "amount": 75 },
-            { "low": 7501,  "high": 10000, "amount": 85 },
-            { "low": 10001, "high": 15000, "amount": 95 },
-            { "low": 15001, "high": 20000, "amount": 100 },
-            { "low": 20001, "high": 70000, "amount": 110 },
+            { "low": 1001,  "high": 1500,  "amount": 26 },
+            { "low": 1501,  "high": 2500,  "amount": 41 },
+            { "low": 2501,  "high": 3500,  "amount": 56 },
+            { "low": 3501,  "high": 5000,  "amount": 61 },
+            { "low": 5001,  "high": 7500,  "amount": 77 },
+            { "low": 7501,  "high": 10000, "amount": 87 },
+            { "low": 10001, "high": 15000, "amount": 97 },
+            { "low": 15001, "high": 20000, "amount": 102 },
+            { "low": 20001, "high": 70000, "amount": 105 },
             { "low": 70001, "high": "+Infinity", "amount": -1 }
           ]
         },
@@ -32,17 +32,38 @@
           "name": "unregistered user",
           "ranges": [
             { "low": "-Infinity", "high": 100, "amount": -1 },
-            { "low": 101,   "high": 2500,  "amount": 66 },
-            { "low": 2501,  "high": 3500,  "amount": 88 },
-            { "low": 3501,  "high": 5000,  "amount": 105 },
-            { "low": 5001,  "high": 7500,  "amount": 143 },
-            { "low": 7501,  "high": 10000, "amount": 171 },
-            { "low": 10001, "high": 15000, "amount": 220 },
-            { "low": 15001, "high": 20000, "amount": 237 },
-            { "low": 20001, "high": 35000, "amount": 275 },
+            { "low": 101,   "high": 500,  "amount": 45 },
+            { "low": 501,   "high": 1000,  "amount": 49 },
+            { "low": 1001,  "high": 1500,  "amount": 59 },
+            { "low": 1501,  "high": 2500,  "amount": 74 },
+            { "low": 2501,  "high": 3500,  "amount": 112 },
+            { "low": 3501,  "high": 5000,  "amount": 135 },
+            { "low": 5001,  "high": 7500,  "amount": 166 },
+            { "low": 7501,  "high": 10000, "amount": 205 },
+            { "low": 10001, "high": 15000, "amount": 265 },
+            { "low": 15001, "high": 20000, "amount": 288 },
+            { "low": 20001, "high": 35000, "amount": 309 },
             { "low": 35001, "high": "+Infinity", "amount": -1 }
           ]
         },
+        {
+          "name": "other mobile user",
+          "ranges": [
+            { "low": "-Infinity", "high": 100, "amount": -1 },
+            { "low": 101,   "high": 500,  "amount": 11 },
+            { "low": 501,   "high": 1000,  "amount": 15 },
+            { "low": 1001,  "high": 1500,  "amount": 26 },
+            { "low": 1501,  "high": 2500,  "amount": 41 },
+            { "low": 2501,  "high": 3500,  "amount": 56 },
+            { "low": 3501,  "high": 5000,  "amount": 61 },
+            { "low": 5001,  "high": 7500,  "amount": 77 },
+            { "low": 7501,  "high": 10000, "amount": 87 },
+            { "low": 10001, "high": 15000, "amount": 97 },
+            { "low": 15001, "high": 20000, "amount": 102 },
+            { "low": 20001, "high": 75000, "amount": 105 },
+            { "low": 75001, "high": "+Infinity", "amount": -1 }
+          ]
+        },        
         {
           "name": "lipa na mpesa",
           "ranges": [
@@ -62,16 +83,17 @@
           "ranges": [
             { "low": "-Infinity", "high": 49, "amount": -1 },
             { "low": 50,    "high": 100,   "amount": 10 },
-            { "low": 101,   "high": 2500,  "amount": 27 },
-            { "low": 2501,  "high": 3500,  "amount": 49 },
-            { "low": 3501,  "high": 5000,  "amount": 66 },
-            { "low": 5001,  "high": 7500,  "amount": 82 },
-            { "low": 7501,  "high": 10000, "amount": 110 },
-            { "low": 10001, "high": 15000, "amount": 159 },
-            { "low": 15001, "high": 20000, "amount": 176 },
-            { "low": 20001, "high": 35000, "amount": 187 },
-            { "low": 35001, "high": 50000, "amount": 275 },
-            { "low": 50001, "high": 70000, "amount": 330 },
+            { "low": 101,   "high": 500,   "amount": 27 },
+            { "low": 501,   "high": 2500,  "amount": 28 },
+            { "low": 2501,  "high": 3500,  "amount": 50 },
+            { "low": 3501,  "high": 5000,  "amount": 67 },
+            { "low": 5001,  "high": 7500,  "amount": 84 },
+            { "low": 7501,  "high": 10000, "amount": 112 },
+            { "low": 10001, "high": 15000, "amount": 162 },
+            { "low": 15001, "high": 20000, "amount": 180 },
+            { "low": 20001, "high": 35000, "amount": 191 },
+            { "low": 35001, "high": 50000, "amount": 270 },
+            { "low": 50001, "high": 70000, "amount": 300 },
             { "low": 70001, "high": "+Infinity", "amount": -1 }
           ]
         },
@@ -79,10 +101,10 @@
           "name": "atm",
           "ranges": [
             { "low": "-Infinity", "high": 199, "amount": -1 },
-            { "low": 200,   "high": 2500,  "amount": 33 },
-            { "low": 2501,  "high": 5000,  "amount": 66 },
-            { "low": 5001,  "high": 10000, "amount": 110 },
-            { "low": 10001, "high": 20000, "amount": 193 },
+            { "low": 200,   "high": 2500,  "amount": 34 },
+            { "low": 2501,  "high": 5000,  "amount": 67 },
+            { "low": 5001,  "high": 10000, "amount": 112 },
+            { "low": 10001, "high": 20000, "amount": 197 },
             { "low": 20001, "high": "+Infinity", "amount": -1 }
           ]
         }
